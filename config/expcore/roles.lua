@@ -20,7 +20,7 @@ end)
 
 --- Admin Roles
 Roles.new_role('System','SYS')
-:set_permission_group('Default', true)
+:set_permission_group('Admin')
 :set_flag('is_admin')
 :set_flag('is_spectator')
 :set_flag('report-immune')
@@ -37,7 +37,10 @@ Roles.new_role('Senior Administrator','SAdmin')
 :allow{
     'command/interface',
     'command/debug',
-    'command/toggle-cheat-mode'
+    'command/toggle-cheat-mode',
+	'command/follow',
+	'command/spectate',
+    'command/alogi',
 }
 
 Roles.new_role('Administrator','Admin')
@@ -52,16 +55,19 @@ Roles.new_role('Administrator','Admin')
     'gui/warp-list/bypass-cooldown',
     'gui/warp-list/bypass-proximity',
     'command/connect-all',
+	'command/follow',
+	'command/spectate',
+    'command/bonus',
 }
 
 Roles.new_role('Moderator','Mod')
-:set_permission_group('Admin')
+:set_permission_group('Mod')
 :set_custom_color{r=0,g=170,b=0}
 :set_flag('is_admin')
 :set_flag('is_spectator')
 :set_flag('report-immune')
 :set_flag('instance-respawn')
-:set_parent('Trainee')
+:set_parent('Veteran')
 :allow{
     'command/assign-role',
     'command/unassign-role',
@@ -71,8 +77,8 @@ Roles.new_role('Moderator','Mod')
     'command/go-to-spawn/always',
     'command/clear-reports',
     'command/clear-warnings',
+    'command/clear-temp-ban',
     'command/clear-inventory',
-    'command/bonus',
     'command/home',
     'command/home-set',
     'command/home-get',
@@ -81,112 +87,51 @@ Roles.new_role('Moderator','Mod')
     'gui/rocket-info/toggle-active',
     'gui/rocket-info/remote_launch',
     'fast-tree-decon',
-}
+    'command/follow',
+    'command/spectate',
 
-Roles.new_role('Trainee','TrMod')
-:set_permission_group('Admin')
-:set_custom_color{r=0,g=170,b=0}
-:set_flag('is_admin')
-:set_flag('is_spectator')
-:set_flag('report-immune')
-:set_parent('Veteran')
-:allow{
     'command/admin-chat',
-    'command/admin-marker',
     'command/teleport',
     'command/bring',
     'command/goto',
+    'command/temp-ban',
     'command/give-warning',
     'command/get-warnings',
     'command/get-reports',
-    'command/protect-entity',
-    'command/protect-area',
     'command/jail',
     'command/unjail',
     'command/kick',
     'command/ban',
-    'command/spectate',
-    'command/follow',
-    'command/search',
-    'command/search-amount',
-    'command/search-recent',
-    'command/search-online',
+  	'command/follow',
+  	'command/spectate',
 }
 
 --- Trusted Roles
-Roles.new_role('Board Member','Board')
-:set_permission_group('Trusted')
-:set_custom_color{r=247,g=246,b=54}
-:set_flag('is_spectator')
-:set_flag('report-immune')
-:set_flag('instance-respawn')
-:set_parent('Sponsor')
-:allow{
-    'command/goto',
-    'command/repair',
-    'command/spectate',
-    'command/follow',
-}
-
-Roles.new_role('Senior Backer','Backer')
-:set_permission_group('Trusted')
-:set_custom_color{r=238,g=172,b=44}
-:set_flag('is_spectator')
-:set_flag('report-immune')
-:set_flag('instance-respawn')
-:set_parent('Sponsor')
-:allow{
-}
-
-Roles.new_role('Sponsor','Spon')
-:set_permission_group('Trusted')
-:set_custom_color{r=238,g=172,b=44}
-:set_flag('is_spectator')
-:set_flag('report-immune')
-:set_flag('instance-respawn')
-:set_parent('Supporter')
-:allow{
-    'gui/rocket-info/toggle-active',
-    'gui/rocket-info/remote_launch',
-    'command/bonus',
-    'command/home',
-    'command/home-set',
-    'command/home-get',
-    'command/return',
-    'fast-tree-decon'
-}
-
 Roles.new_role('Supporter','Sup')
 :set_permission_group('Trusted')
 :set_custom_color{r=230,g=99,b=34}
 :set_flag('is_spectator')
 :set_parent('Veteran')
 :allow{
-    'command/tag-color',
     'command/jail',
     'command/unjail',
-    'command/join-message',
-    'command/join-message-clear'
-}
-
-Roles.new_role('Partner','Part')
-:set_permission_group('Trusted')
-:set_custom_color{r=140,g=120,b=200}
-:set_flag('is_spectator')
-:set_parent('Veteran')
-:allow{
-    'command/jail',
-    'command/unjail'
+		'command/home',
+    'command/home-set',
+    'command/home-get',
+    'command/return',
+    'command/join-message'
 }
 
 local hours10, hours250 = 10*216000, 250*60
 Roles.new_role('Veteran','Vet')
 :set_permission_group('Trusted')
 :set_custom_color{r=140,g=120,b=200}
-:set_parent('Member')
+:set_parent('Regular')
 :allow{
     'command/chat-bot',
-    'command/last-location'
+    'command/logi',
+    'command/clogi',
+    'command/save-quickbar'
 }
 :set_auto_assign_condition(function(player)
     if player.online_time >= hours10 then
@@ -199,18 +144,6 @@ Roles.new_role('Veteran','Vet')
 end)
 
 --- Standard User Roles
-Roles.new_role('Member','Mem')
-:set_permission_group('Standard')
-:set_custom_color{r=24,g=172,b=188}
-:set_parent('Regular')
-:allow{
-    'gui/task-list/add',
-    'gui/task-list/edit',
-    'gui/warp-list/add',
-    'gui/warp-list/edit',
-    'command/save-quickbar'
-}
-
 local hours3, hours15 = 3*216000, 15*60
 Roles.new_role('Regular','Reg')
 :set_permission_group('Standard')
@@ -221,8 +154,7 @@ Roles.new_role('Regular','Reg')
     'command/rainbow',
     'command/go-to-spawn',
     'command/me',
-    'standard-decon',
-    'bypass-entity-protection'
+    'standard-decon'
 }
 :set_auto_assign_condition(function(player)
     if player.online_time >= hours3 then
@@ -275,58 +207,64 @@ Roles.define_role_order{
     'Senior Administrator',
     'Administrator',
     'Moderator',
-    'Trainee',
-    'Board Member',
-    'Senior Backer',
-    'Sponsor',
     'Supporter',
-    'Partner',
     'Veteran',
-    'Member',
     'Regular',
     'Jail',
     'Guest' -- Default must be last if you want to apply restrictions to other roles
 }
 
 Roles.override_player_roles{
-    ["Cooldude2606"]={"Senior Administrator","Moderator","Senior Backer","Supporter"},
-    ["arty714"]={"Senior Administrator","Senior Backer","Supporter"},
-    ["Drahc_pro"]={"Administrator","Moderator","Veteran","Member"},
-    ["mark9064"]={"Administrator","Moderator","Member"},
-    ["aldldl"]={"Administrator","Moderator","Senior Backer","Sponsor","Supporter","Member"},
+	['uno_chaos']={"Senior Administrator"},
+	['Nightmare-Squirrel']={"Senior Administrator"},
+	['joloman2']={"Senior Administrator"},
 
-    ["ookl"]={"Moderator","Senior Backer","Sponsor","Supporter","Partner","Member"},
-    ["hamsterbryan"]={"Moderator","Senior Backer","Supporter","Member"},
-    ["M74132"]={"Moderator","Senior Backer","Sponsor","Supporter","Member"},
-    ["LoicB"]={"Moderator","Senior Backer","Supporter","Veteran","Member"},
-    ["UUBlueFire"]={"Moderator","Senior Backer","Supporter","Member"},
+	['Cykloid']={"Administrator"},
+	['telexicon']={"Administrator"},
+	['Kerza_']={"Administrator"},
+	['bananna_manuk']={"Administrator"},
+	['elefetor']={"Administrator"},
 
-    ["thadius856"]={"Moderator","Supporter","Member"},
-    ["XenoCyber"]={"Moderator","Supporter","Partner","Member"},
-    ["cydes"]={"Moderator","Supporter","Member"},
-    ["darklich14"]={"Moderator","Supporter","Member"},
-    ["SilentLog"]={"Moderator","Supporter","Member"},
-    ["freek18"]={"Moderator","Supporter","Member"},
-    ["porelos"]={"Moderator","Supporter","Member"},
+	['zampaman']={"Moderator"},
+	['ultrajer']={"Moderator"},
+	['pilypas']={"Moderator"},
+	['mskitty']={"Moderator"},
+	['DrSuperGood']={"Moderator"},
+	['Evy_D']={"Moderator"},
+	['i_cant_think_of_a_username']={"Moderator"},
 
-    ["7h3w1z4rd"]={"Moderator","Member"},
-    ["Windbomb"]={"Moderator","Member"},
-    ["Phoenix27833"]={"Moderator","Member"},
-    ["banakeg"]={"Moderator","Member"},
-    ["maplesyrup01"]={"Moderator","Member"},
-    ["FlipHalfling90"]={"Moderator","Member"},
-    ["Ruuyji"]={"Moderator","Member"},
-    ["Gizan"]={"Moderator"},
-    ["samy115"]={"Moderator","Member"},
-    ["Hobbitkicker"]={"Moderator","Member"},
-    ["facere"]={"Moderator","Member"},
-    ["whoami32"]={"Moderator","Member"},
-    ["NextIdea"]={"Moderator","Member"},
-    ["mafisch3"]={"Moderator","Member"},
-    ["Tcheko"]={"Moderator","Member"},
-    ["AssemblyStorm"]={"Moderator","Veteran","Member"},
-    ["connormkii"]={"Moderator","Veteran","Member"},
-    ["Koroto"]={"Moderator","Veteran","Member"},
-    ["scarbvis"]={"Moderator","Member"},
-    ["CmonMate497"]={"Moderator","Member"}
+	['TomKron']={"Supporter"},
+	['cfras5']={"Supporter"},
+	['cydes']={"Supporter"},
+	['BAD4EVR']={"Supporter"},
+	['ciderdave']={"Supporter"},
+	['jballou']={"Supporter"},
+
+	['wingpro_']={"Veteran"},
+	['voski']={"Veteran"},
+	['Train_Tracker']={"Veteran"},
+	['i-make-robots']={"Veteran"},
+	['Cantante57']={"Veteran"},
+	['ballbuster']={"Veteran"},
+	['chrisisthebe']={"Veteran"},
+	['cokaina']={"Veteran"},
+	['JustMatthew']={"Veteran"},
+	['fact10']={"Veteran"},
+	['Spzi']={"Veteran"},
+	['RailOcelot']={"Veteran"},
+	['emarcoscl']={"Veteran"},
+	['jrz126']={"Veteran"},
+	['Garfield089']={"Veteran"},
+	['Delqvs']={"Veteran"},
+	['jaboo']={"Veteran"},
+	['DaniloZanchi']={"Veteran"},
+	['RunWren']={"Veteran"},
+	['Fnoo']={"Veteran"},
+	['ComradeJay']={"Veteran"},
+	['flyingtoaster_']={"Veteran"},
+	['Viejo']={"Veteran"},
+	['Crowcage']={"Veteran"},
+	['TheRealSlimChewy']={"Veteran"},
+	['snouborrder']={"Veteran"},
+	['SquidConsumption']={"Veteran"},
 }
