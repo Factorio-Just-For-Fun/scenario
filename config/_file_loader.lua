@@ -27,7 +27,7 @@ return {
     -- 'modules.commands.spawn',
     'modules.commands.warnings',
     'modules.commands.find',
-    -- 'modules.commands.home',
+    'modules.commands.home',
     -- 'modules.commands.connect',
     -- 'modules.commands.last-location',
     -- 'modules.commands.protection',
@@ -64,12 +64,12 @@ return {
     -- 'modules.gui.readme',
     'modules.gui.rocket-info',
     'modules.gui.science-info',
-    'modules.gui.autofill',
+    -- 'modules.gui.autofill',
     -- 'modules.gui.warp-list',
     'modules.gui.task-list',
     'modules.gui.player-list',
     -- 'modules.gui.server-ups',
-    'modules.commands.debug',
+    -- 'modules.commands.debug',
     -- 'modules.gui.autofill',
 
     --- FJFF Modules, anything added by FJFF.
