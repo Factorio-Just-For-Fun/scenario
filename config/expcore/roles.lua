@@ -267,4 +267,7 @@ Roles.override_player_roles{
 	['TheRealSlimChewy']={"Veteran"},
 	['snouborrder']={"Veteran"},
 	['SquidConsumption']={"Veteran"},
+  ['ratmonkies']={"Veteran"},
+  ['bhodinut']={"Veteran"},
+  ['oli-vier']={"Veteran"}
 }
