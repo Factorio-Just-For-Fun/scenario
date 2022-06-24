@@ -52,8 +52,6 @@ Roles.new_role('Administrator','Admin')
 :set_flag('instance-respawn')
 :set_parent('Moderator')
 :allow{
-    'gui/warp-list/bypass-cooldown',
-    'gui/warp-list/bypass-proximity',
     'command/connect-all',
 		'command/follow',
 		'command/spectate',
@@ -152,7 +150,6 @@ Roles.new_role('Regular','Reg')
 :allow{
     'command/kill',
     'command/rainbow',
-    'command/go-to-spawn',
     'command/me',
     'standard-decon'
 }
@@ -187,7 +184,6 @@ local default = Roles.new_role('Guest','')
     'gui/rocket-info',
     'gui/science-info',
     'gui/task-list',
-    'gui/warp-list',
     'gui/readme'
 }
 
