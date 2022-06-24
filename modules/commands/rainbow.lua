@@ -65,7 +65,7 @@ end)
 -- @command rainbow-ban
 -- @tparam player The ban target
 -- @tparam string The ban reason
-Commands.new_command('rainbow-ban', 'Bans someone, with stype!')
+Commands.new_command('rainbow-ban', 'Bans someone, with style!')
 :add_param('player', false)
 :add_param('message', false)
 :set_flag('admin_only')
