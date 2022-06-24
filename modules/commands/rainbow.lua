@@ -60,3 +60,26 @@ Commands.new_command('rainbow', 'Sends an rainbow message in the chat')
     end)
     game.print(output)
 end)
+
+--- Bans someone, with style!
+-- @command rainbow-ban
+-- @tparam player The ban target
+-- @tparam string The ban reason
+Commands.new_command('rainbow-ban', 'Bans someone, with stype!')
+:add_param('player', false)
+:add_param('message', false)
+:set_flag('admin_only')
+:enable_auto_concat()
+:register(function(player, target, message)
+    local player_color = player and player.color or nil
+    local color_step = 3/message:len()
+    if color_step > 1 then color_step = 1 end
+    local current_color = {r=1, g=0, b=0}
+    local output = message:gsub('%S', function(letter)
+        local rtn = format_chat_colour(letter, current_color)
+        current_color = next_color(current_color, color_step)
+        return rtn
+    end)
+
+    game.ban_player(target, output)
+end)

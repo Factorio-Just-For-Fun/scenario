@@ -77,7 +77,6 @@ Roles.new_role('Moderator','Mod')
     'command/go-to-spawn/always',
     'command/clear-reports',
     'command/clear-warnings',
-    'command/clear-temp-ban',
     'command/clear-inventory',
     'command/home',
     'command/home-set',
@@ -102,6 +101,7 @@ Roles.new_role('Moderator','Mod')
     'command/unjail',
     'command/kick',
     'command/ban',
+    'command/rainbow-ban',
   	'command/follow',
   	'command/spectate',
 }
