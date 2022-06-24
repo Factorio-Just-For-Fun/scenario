@@ -21,5 +21,5 @@ Event.add(Reports.events.on_player_reported, function(event)
     -- Combined playtime is greater than 150% of the reported's playtime
     local player_name_color = format_chat_player_name(player)
     Jail.jail_player(player, '<reports>', 'Reported by too many players, please wait for a moderator.')
-    game.print{'expcom-jail.give', action_player_name_color, '<reports>', 'Reported by too many players, please wait for a moderator.'}
+    game.print{'expcom-jail.give', player_name_color, '<reports>', 'Reported by too many players, please wait for a moderator'}
 end)

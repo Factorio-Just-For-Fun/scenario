@@ -28,7 +28,7 @@ Event.add(Protection.events.on_repeat_violation, function(event)
     if repeat_count[player.index] < 3 then return end
     local player_name_color = format_chat_player_name(player)
     Jail.jail_player(player, '<protection>', 'Removed too many protected entities, please wait for a moderator.')
-    game.print{'expcom-jail.give', action_player_name_color, '<protection>', 'Removed too many protected entities, please wait for a moderator.'}
+    game.print{'expcom-jail.give', player_name_color, '<protection>', 'Removed too many protected entities, please wait for a moderator'}
 end)
 
 --- Clear the counter when they leave the game (stops a build up of data)
