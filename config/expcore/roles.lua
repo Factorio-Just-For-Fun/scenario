@@ -38,8 +38,8 @@ Roles.new_role('Senior Administrator','SAdmin')
     'command/interface',
     'command/debug',
     'command/toggle-cheat-mode',
-	'command/follow',
-	'command/spectate',
+		'command/follow',
+  	'command/spectate',
     'command/alogi',
 }
 
@@ -55,8 +55,8 @@ Roles.new_role('Administrator','Admin')
     'gui/warp-list/bypass-cooldown',
     'gui/warp-list/bypass-proximity',
     'command/connect-all',
-	'command/follow',
-	'command/spectate',
+		'command/follow',
+		'command/spectate',
     'command/bonus',
 }
 
@@ -94,7 +94,7 @@ Roles.new_role('Moderator','Mod')
     'command/teleport',
     'command/bring',
     'command/goto',
-    'command/temp-ban',
+    'command/admin-marker',
     'command/give-warning',
     'command/get-warnings',
     'command/get-reports',
