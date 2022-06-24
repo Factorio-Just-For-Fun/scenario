@@ -73,7 +73,7 @@ return {
     -- 'modules.gui.autofill',
 
     --- FJFF Modules, anything added by FJFF.
-    'fjffmodules.logi-command',
+    'modules.commands.logi',
 
     --- Config Files
     'config.expcore.command_auth_admin', -- commands tagged with admin_only are blocked for non admins
