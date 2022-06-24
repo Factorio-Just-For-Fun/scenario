@@ -8,7 +8,7 @@ return {
 
     },
     always_protected_types = { --- @setting always_protected_types Types of entities which are always protected
-        'boiler', 'generator', 'offshore-pump', 'power-switch', 'reactor', 'rocket-silo'
+        -- 'boiler', 'generator', 'offshore-pump', 'power-switch', 'reactor', 'rocket-silo'
     },
     always_trigger_repeat_names = { --- @setting always_trigger_repeat_names Names of entities which always trigger repeated removal protection
 
