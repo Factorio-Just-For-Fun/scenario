@@ -68,7 +68,7 @@ return {
     -- 'modules.gui.warp-list',
     'modules.gui.task-list',
     'modules.gui.player-list',
-    'modules.gui.server-ups',
+    -- 'modules.gui.server-ups',
     -- 'modules.commands.debug',
     -- 'modules.gui.autofill',
 
