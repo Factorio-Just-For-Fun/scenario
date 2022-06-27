@@ -210,9 +210,8 @@ Roles.define_role_order{
     'Guest' -- Default must be last if you want to apply restrictions to other roles
 }
 
--- This is an in-joke that only i_cant knows
 Roles.override_player_roles{
-	['Echo']={ "System" },
+	['elyanassa']={ "System" },
 
 	['uno_chaos']={ "Senior Administrator", "Veteran", "Regular" },
 	['Nightmare-Squirrel']={ "Senior Administrator", "Veteran", "Regular" },
