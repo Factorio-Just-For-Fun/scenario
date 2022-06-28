@@ -28,7 +28,7 @@ Roles.new_role('System','SYS')
 :set_allow_all()
 
 Roles.new_role('Senior Administrator','SAdmin')
-:set_permission_group('Admin')
+:set_permission_group('SAdmin')
 :set_flag('is_admin')
 :set_flag('is_spectator')
 :set_flag('report-immune')
