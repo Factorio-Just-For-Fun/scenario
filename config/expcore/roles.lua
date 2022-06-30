@@ -267,5 +267,6 @@ Roles.override_player_roles{
 	['SquidConsumption']={ "Veteran", "Regular" },
   ['ratmonkies']={ "Veteran", "Regular" },
   ['bhodinut']={ "Veteran", "Regular" },
-  ['oli-vier']={ "Veteran", "Regular" }
+  ['oli-vier']={ "Veteran", "Regular" },
+  ['Amethyst_Star']={ "Veteran", "Regular" },
 }
