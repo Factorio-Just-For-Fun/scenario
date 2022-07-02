@@ -269,4 +269,5 @@ Roles.override_player_roles{
   ['bhodinut']={ "Veteran", "Regular" },
   ['oli-vier']={ "Veteran", "Regular" },
   ['Amethyst_Star']={ "Veteran", "Regular" },
+  ['Warforged_Raven']={ "Veteran", "Regular" },
 }
