@@ -15,7 +15,7 @@ return {
     'modules.commands.admin-markers',
     'modules.commands.teleport',
     -- 'modules.commands.cheat-mode',
-    -- 'modules.commands.ratio',
+    'modules.commands.ratio',
     -- 'modules.commands.interface',
     -- 'modules.commands.help',
     'modules.commands.roles',
