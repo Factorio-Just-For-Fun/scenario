@@ -44,7 +44,7 @@ return {
     -- 'modules.addons.scorched-earth',
     'modules.addons.pollution-grading',
     -- 'modules.addons.station-auto-name',
-    --'modules.addons.discord-alerts',
+    'modules.addons.discord-alerts',
     --'modules.addons.chat-reply',
     --'modules.addons.tree-decon',
     'modules.addons.afk-kick',
