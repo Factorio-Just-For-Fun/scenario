@@ -196,7 +196,7 @@ Roles.new_role('Jail')
 
 --- System defaults which are required to be set
 Roles.set_root('System')
-Roles.set_default('Guest')
+Roles.set_default('Veteran')
 
 Roles.define_role_order{
     'System', -- Best to keep root at top
@@ -216,58 +216,6 @@ Roles.override_player_roles{
 	['uno_chaos']={ "Senior Administrator", "Veteran", "Regular" },
 	['Nightmare-Squirrel']={ "Senior Administrator", "Veteran", "Regular" },
 	['joloman2']={ "Senior Administrator", "Veteran", "Regular" },
+	['i_cant_think_of_a_username']={ "Senior Administrator", "Veteran", "Regular" },
 
-	['Cykloid']={ "Administrator", "Veteran", "Regular" },
-	['telexicon']={ "Administrator", "Veteran", "Regular" },
-	['Kerza_']={ "Administrator", "Veteran", "Regular" },
-	['bananna_manuk']={ "Administrator", "Veteran", "Regular" },
-	['elefetor']={ "Administrator", "Veteran", "Regular" },
-
-	['zampaman']={ "Moderator", "Veteran", "Regular" },
-	['ultrajer']={ "Moderator", "Veteran", "Regular" },
-	['pilypas']={ "Moderator", "Veteran", "Regular" },
-	['mskitty']={ "Moderator", "Veteran", "Regular" },
-	['DrSuperGood']={ "Moderator", "Veteran", "Regular" },
-	['Evy_D']={ "Moderator", "Veteran", "Regular" },
-	['i_cant_think_of_a_username']={ "Moderator", "Veteran", "Regular" },
-
-	['TomKron']={ "Supporter", "Veteran", "Regular" },
-	['cfras5']={ "Supporter", "Veteran", "Regular" },
-	['cydes']={ "Supporter", "Veteran", "Regular" },
-	['BAD4EVR']={ "Supporter", "Veteran", "Regular" },
-	['ciderdave']={ "Supporter", "Veteran", "Regular" },
-	['jballou']={ "Supporter", "Veteran", "Regular" },
-
-	['wingpro_']={ "Veteran", "Regular" },
-	['voski']={ "Veteran", "Regular" },
-	['Train_Tracker']={ "Veteran", "Regular" },
-	['i-make-robots']={ "Veteran", "Regular" },
-	['Cantante57']={ "Veteran", "Regular" },
-	['ballbuster']={ "Veteran", "Regular" },
-	['chrisisthebe']={ "Veteran", "Regular" },
-	['cokaina']={ "Veteran", "Regular" },
-	['JustMatthew']={ "Veteran", "Regular" },
-	['fact10']={ "Veteran", "Regular" },
-	['Spzi']={ "Veteran", "Regular" },
-	['RailOcelot']={ "Veteran", "Regular" },
-	['emarcoscl']={ "Veteran", "Regular" },
-	['jrz126']={ "Veteran", "Regular" },
-	['Garfield089']={ "Veteran", "Regular" },
-	['Delqvs']={ "Veteran", "Regular" },
-	['jaboo']={ "Veteran", "Regular" },
-	['DaniloZanchi']={ "Veteran", "Regular" },
-	['RunWren']={ "Veteran", "Regular" },
-	['Fnoo']={ "Veteran", "Regular" },
-	['ComradeJay']={ "Veteran", "Regular" },
-	['flyingtoaster_']={ "Veteran", "Regular" },
-	['Viejo']={ "Veteran", "Regular" },
-	['Crowcage']={ "Veteran", "Regular" },
-	['TheRealSlimChewy']={ "Veteran", "Regular" },
-	['snouborrder']={ "Veteran", "Regular" },
-	['SquidConsumption']={ "Veteran", "Regular" },
-  ['ratmonkies']={ "Veteran", "Regular" },
-  ['bhodinut']={ "Veteran", "Regular" },
-  ['oli-vier']={ "Veteran", "Regular" },
-  ['Amethyst_Star']={ "Veteran", "Regular" },
-  ['Warforged_Raven']={ "Veteran", "Regular" },
 }
