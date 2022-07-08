@@ -6,7 +6,7 @@ return {
     entity_protection=true,
     player_reports=true,
     player_warnings=true,
-    player_bans=false,
+    player_bans=true,
     player_mutes=true,
     player_kicks=true,
     player_promotes=false,
