@@ -270,4 +270,5 @@ Roles.override_player_roles{
   ['Amethyst_Star']={ "Veteran", "Regular" },
   ['Warforged_Raven']={ "Veteran", "Regular" },
   ['null.shader']={ "Veteran", "Regular" },
+  ['ffuw']={ "Veteran", "Regular" },
 }
