@@ -120,7 +120,7 @@ Roles.new_role('Supporter','Sup')
     'command/join-message'
 }
 
-local hours10, hours250 = 10*216000, 250*60
+local hours10, hours15 = 10*216000, 15*60
 Roles.new_role('Veteran','Vet')
 :set_permission_group('Trusted')
 :set_custom_color{r=140,g=120,b=200}
@@ -137,12 +137,12 @@ Roles.new_role('Veteran','Vet')
     else
         local stats = Statistics:get(player, {})
         local playTime, afkTime, mapCount = stats.Playtime or 0, stats.AfkTime or 0, stats.MapsPlayed or 0
-        return playTime - afkTime >= hours250 and mapCount >= 25
+        return playTime - afkTime >= hours15 and mapCount >= 3
     end
 end)
 
 --- Standard User Roles
-local hours3, hours15 = 3*216000, 15*60
+local hours3, hours8 = 3*216000, 8*60
 Roles.new_role('Regular','Reg')
 :set_permission_group('Standard')
 :set_custom_color{r=79,g=155,b=163}
@@ -159,7 +159,7 @@ Roles.new_role('Regular','Reg')
     else
         local stats = Statistics:get(player, {})
         local playTime, afkTime, mapCount = stats.Playtime or 0, stats.AfkTime or 0, stats.MapsPlayed or 0
-        return playTime - afkTime >= hours15 and mapCount >= 5
+        return playTime - afkTime >= hours8 and mapCount >= 3
     end
 end)
 
