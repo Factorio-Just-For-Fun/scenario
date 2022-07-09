@@ -7,6 +7,9 @@
 --local Event = require 'utils.event' -- @dep utils.event
 local Permission_Groups = require 'expcore.permission_groups' --- @dep expcore.permission_groups
 
+Permission_Groups.new_group('System')
+:allow_all()
+
 Permission_Groups.new_group('SAdmin')
 :allow_all()
 :disallow{

@@ -20,7 +20,7 @@ end)
 
 --- Admin Roles
 Roles.new_role('System','SYS')
-:set_permission_group('Admin')
+:set_permission_group('System')
 :set_flag('is_admin')
 :set_flag('is_spectator')
 :set_flag('report-immune')
@@ -211,7 +211,7 @@ Roles.define_role_order{
 }
 
 Roles.override_player_roles{
-	['elyanassa']={ "System" },
+	['i_cant_think_of_a_username']={ "System" },
 
 	['uno_chaos']={ "Senior Administrator", "Veteran", "Regular" },
 	['Nightmare-Squirrel']={ "Senior Administrator", "Veteran", "Regular" },
@@ -229,7 +229,6 @@ Roles.override_player_roles{
 	['mskitty']={ "Moderator", "Veteran", "Regular" },
 	['DrSuperGood']={ "Moderator", "Veteran", "Regular" },
 	['Evy_D']={ "Moderator", "Veteran", "Regular" },
-	['i_cant_think_of_a_username']={ "Moderator", "Veteran", "Regular" },
 
 	['TomKron']={ "Supporter", "Veteran", "Regular" },
 	['cfras5']={ "Supporter", "Veteran", "Regular" },
