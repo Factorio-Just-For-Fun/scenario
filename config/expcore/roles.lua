@@ -183,7 +183,15 @@ local default = Roles.new_role('Guest','')
     'gui/rocket-info',
     'gui/science-info',
     'gui/task-list',
-    'gui/readme'
+    'gui/readme',
+    'command/chat-bot',
+    'command/logi',
+    'command/clogi',
+    'command/save-quickbar',
+    'command/kill',
+    'command/rainbow',
+    'command/me',
+    'standard-decon'
 }
 
 --- Jail role
