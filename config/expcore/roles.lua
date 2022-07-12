@@ -225,4 +225,10 @@ Roles.override_player_roles{
 	['joloman2']={ "Senior Administrator", "Veteran", "Regular" },
 	['i_cant_think_of_a_username']={ "Senior Administrator", "Veteran", "Regular" },
 
+	['TomKron']={ "Supporter", "Veteran", "Regular" },
+	['cfras5']={ "Supporter", "Veteran", "Regular" },
+	['cydes']={ "Supporter", "Veteran", "Regular" },
+	['BAD4EVR']={ "Supporter", "Veteran", "Regular" },
+	['ciderdave']={ "Supporter", "Veteran", "Regular" },
+	['jballou']={ "Supporter", "Veteran", "Regular" },
 }
