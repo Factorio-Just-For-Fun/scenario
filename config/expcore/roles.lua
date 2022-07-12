@@ -86,7 +86,6 @@ Roles.new_role('Moderator','Mod')
     'fast-tree-decon',
     'command/follow',
     'command/spectate',
-
     'command/admin-chat',
     'command/teleport',
     'command/bring',
@@ -100,8 +99,8 @@ Roles.new_role('Moderator','Mod')
     'command/kick',
     'command/ban',
     'command/rainbow-ban',
-  	'command/follow',
-  	'command/spectate',
+    'command/follow',
+    'command/spectate',
 }
 
 --- Trusted Roles
@@ -113,7 +112,7 @@ Roles.new_role('Supporter','Sup')
 :allow{
     'command/jail',
     'command/unjail',
-		'command/home',
+    'command/home',
     'command/home-set',
     'command/home-get',
     'command/return',
@@ -196,7 +195,7 @@ Roles.new_role('Jail')
 
 --- System defaults which are required to be set
 Roles.set_root('System')
-Roles.set_default('Veteran')
+Roles.set_default('Guest')
 
 Roles.define_role_order{
     'System', -- Best to keep root at top
