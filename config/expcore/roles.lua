@@ -264,10 +264,12 @@ Roles.override_player_roles{
 	['TheRealSlimChewy']={ "Veteran", "Regular" },
 	['snouborrder']={ "Veteran", "Regular" },
 	['SquidConsumption']={ "Veteran", "Regular" },
-  ['ratmonkies']={ "Veteran", "Regular" },
-  ['bhodinut']={ "Veteran", "Regular" },
-  ['oli-vier']={ "Veteran", "Regular" },
-  ['Amethyst_Star']={ "Veteran", "Regular" },
-  ['Warforged_Raven']={ "Veteran", "Regular" },
-  ['null.shader']={ "Veteran", "Regular" },
+	['ratmonkies']={ "Veteran", "Regular" },
+	['bhodinut']={ "Veteran", "Regular" },
+	['oli-vier']={ "Veteran", "Regular" },
+	['Amethyst_Star']={ "Veteran", "Regular" },
+	['Warforged_Raven']={ "Veteran", "Regular" }
+	['null.shader']={ "Veteran", "Regular" },
+	['ProtoAES256']={ "Veteran", "Regular" },
+	
 }
