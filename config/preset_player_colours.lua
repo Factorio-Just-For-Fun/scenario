@@ -9,6 +9,7 @@ return {
 		Spzi = {r = 111, g = 111, b = 252},
 		mskitty = {r = 255, g = 105, b = 180},
 		i_cant_think_of_a_username = {r = 0, g = 115, b = 180},
+		uno_chaos = {r = 142, g = 194, b = 40},
 	},
 	disallow = { --- @setting disallow colours which will not given to players; the value does not matter it is only the key which is checked
 		black = {r = 0, g = 0, b = 0},

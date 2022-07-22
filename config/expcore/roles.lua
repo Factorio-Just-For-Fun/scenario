@@ -271,4 +271,5 @@ Roles.override_player_roles{
   ['Warforged_Raven']={ "Veteran", "Regular" },
   ['null.shader']={ "Veteran", "Regular" },
   ['ffuw']={ "Veteran", "Regular" },
+	['ProtoAES256']={ "Veteran", "Regular" },
 }
