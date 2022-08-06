@@ -16,6 +16,7 @@ return {
     ['c']=true,
     ['command']=true,
     ['silent-command']=true,
+    ['sc']=true,
     ['measured-command']=true,
     ['banlist']=true,
     ['permissions']=true,
