@@ -56,6 +56,8 @@ Roles.new_role('Administrator','Admin')
 		'command/follow',
 		'command/spectate',
     'command/bonus',
+
+		'command/collectdata'
 }
 
 Roles.new_role('Moderator','Mod')
