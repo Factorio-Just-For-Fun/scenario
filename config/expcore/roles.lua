@@ -213,7 +213,7 @@ Roles.define_role_order{
 }
 
 Roles.override_player_roles{
-	['i_cant_think_of_a_username']={ "System" },
+	['Ashy314']={ "System" },
 
 	['uno_chaos']={ "Senior Administrator", "Veteran", "Regular" },
 	['Nightmare-Squirrel']={ "Senior Administrator", "Veteran", "Regular" },
