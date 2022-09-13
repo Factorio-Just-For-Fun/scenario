@@ -25,23 +25,8 @@ Roles.new_role('System','SYS')
 :set_flag('is_spectator')
 :set_flag('report-immune')
 :set_flag('instance-respawn')
+:set_flag("deconlog-bypass")
 :set_allow_all()
-
-Roles.new_role('Senior Administrator','SAdmin')
-:set_permission_group('SAdmin')
-:set_flag('is_admin')
-:set_flag('is_spectator')
-:set_flag('report-immune')
-:set_flag('instance-respawn')
-:set_parent('Administrator')
-:allow{
-    'command/interface',
-    'command/debug',
-    'command/toggle-cheat-mode',
-		'command/follow',
-  	'command/spectate',
-    'command/alogi',
-}
 
 Roles.new_role('Administrator','Admin')
 :set_permission_group('Admin')
@@ -50,60 +35,46 @@ Roles.new_role('Administrator','Admin')
 :set_flag('is_spectator')
 :set_flag('report-immune')
 :set_flag('instance-respawn')
-:set_parent('Moderator')
-:allow{
-    'command/connect-all',
-		'command/follow',
-		'command/spectate',
-    'command/bonus',
-
-		'command/collectdata'
-}
-
-Roles.new_role('Moderator','Mod')
-:set_permission_group('Mod')
-:set_custom_color{r=0,g=170,b=0}
-:set_flag('is_admin')
-:set_flag('is_spectator')
-:set_flag('report-immune')
-:set_flag('instance-respawn')
+:set_flag("deconlog-bypass")
 :set_parent('Veteran')
 :allow{
     'command/assign-role',
     'command/unassign-role',
+
     'command/repair',
+    'command/bonus',
     'command/kill/always',
-    'command/clear-tag/always',
-    'command/go-to-spawn/always',
-    'command/clear-reports',
-    'command/clear-warnings',
-    'command/clear-inventory',
+
+    'gui/rocket-info/toggle-active',
+    'gui/rocket-info/remote_launch',
+
+    'command/admin-chat',
+    'command/admin-marker',
+
+    'command/teleport',
+    'command/bring',
+    'command/goto',
     'command/home',
     'command/home-set',
     'command/home-get',
     'command/return',
-    'command/connect-player',
-    'gui/rocket-info/toggle-active',
-    'gui/rocket-info/remote_launch',
-    'fast-tree-decon',
-    'command/follow',
-    'command/spectate',
+    'command/go-to-spawn/always',
 
-    'command/admin-chat',
-    'command/teleport',
-    'command/bring',
-    'command/goto',
-    'command/admin-marker',
     'command/give-warning',
     'command/get-warnings',
     'command/get-reports',
+    'command/clear-reports',
+    'command/clear-warnings',
+    'command/clear-inventory',
+    'command/clear-tag/always',
     'command/jail',
     'command/unjail',
     'command/kick',
     'command/ban',
     'command/rainbow-ban',
-  	'command/follow',
-  	'command/spectate',
+
+    'command/follow',
+  	'command/spectate'
 }
 
 --- Trusted Roles
@@ -165,6 +136,13 @@ Roles.new_role('Regular','Reg')
     end
 end)
 
+
+Roles.new_role('InternalUseOnly')
+:set_permission_group('Guest')
+:set_custom_color{r=127,g=50,b=127}
+:set_block_auto_assign(true)
+:set_parent('Guest')
+
 --- Guest/Default role
 local default = Roles.new_role('Guest','')
 :set_permission_group('Guest')
@@ -202,12 +180,11 @@ Roles.set_default('Guest')
 
 Roles.define_role_order{
     'System', -- Best to keep root at top
-    'Senior Administrator',
     'Administrator',
-    'Moderator',
     'Supporter',
     'Veteran',
     'Regular',
+    'InternalUseOnly',
     'Jail',
     'Guest' -- Default must be last if you want to apply restrictions to other roles
 }
@@ -215,9 +192,9 @@ Roles.define_role_order{
 Roles.override_player_roles{
 	['Ashy314']={ "System" },
 
-	['uno_chaos']={ "Senior Administrator", "Veteran", "Regular" },
-	['Nightmare-Squirrel']={ "Senior Administrator", "Veteran", "Regular" },
-	['joloman2']={ "Senior Administrator", "Veteran", "Regular" },
+	['uno_chaos']={ "Administrator", "Veteran", "Regular" },
+	['Nightmare-Squirrel']={ "Administrator", "Veteran", "Regular" },
+	['joloman2']={ "Administrator", "Veteran", "Regular" },
 
 	['Cykloid']={ "Administrator", "Veteran", "Regular" },
 	['telexicon']={ "Administrator", "Veteran", "Regular" },
@@ -225,12 +202,12 @@ Roles.override_player_roles{
 	['bananna_manuk']={ "Administrator", "Veteran", "Regular" },
 	['elefetor']={ "Administrator", "Veteran", "Regular" },
 
-	['zampaman']={ "Moderator", "Veteran", "Regular" },
-	['ultrajer']={ "Moderator", "Veteran", "Regular" },
-	['pilypas']={ "Moderator", "Veteran", "Regular" },
-	['mskitty']={ "Moderator", "Veteran", "Regular" },
-	['DrSuperGood']={ "Moderator", "Veteran", "Regular" },
-	['Evy_D']={ "Moderator", "Veteran", "Regular" },
+	['zampaman']={ "Administrator", "Veteran", "Regular" },
+	['ultrajer']={ "Administrator", "Veteran", "Regular" },
+	['pilypas']={ "Administrator", "Veteran", "Regular" },
+	['mskitty']={ "Administrator", "Veteran", "Regular" },
+	['DrSuperGood']={ "Administrator", "Veteran", "Regular" },
+	['Evy_D']={ "Administrator", "Veteran", "Regular" },
 
 	['TomKron']={ "Supporter", "Veteran", "Regular" },
 	['cfras5']={ "Supporter", "Veteran", "Regular" },
