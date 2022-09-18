@@ -74,7 +74,8 @@ Roles.new_role('Administrator','Admin')
     'command/rainbow-ban',
 
     'command/follow',
-  	'command/spectate'
+  	'command/spectate',
+    'command/search'
 }
 
 --- Trusted Roles
