@@ -72,6 +72,7 @@ Roles.new_role('Administrator','Admin')
     'command/kick',
     'command/ban',
     'command/rainbow-ban',
+    'command/protect-area',
 
     'command/follow',
   	'command/spectate',
