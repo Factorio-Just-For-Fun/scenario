@@ -210,6 +210,7 @@ Roles.override_player_roles{
 	['mskitty']={ "Administrator", "Veteran", "Regular" },
 	['DrSuperGood']={ "Administrator", "Veteran", "Regular" },
 	['Evy_D']={ "Administrator", "Veteran", "Regular" },
+	['MadKatz']={ "Administrator", "Veteran", "Regular" },
 
 	['TomKron']={ "Supporter", "Veteran", "Regular" },
 	['cfras5']={ "Supporter", "Veteran", "Regular" },
