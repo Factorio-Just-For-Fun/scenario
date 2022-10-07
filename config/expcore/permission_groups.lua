@@ -64,7 +64,6 @@ Permission_Groups.new_group('Standard')
     'change_programmable_speaker_alert_parameters',	-- standard
     'change_programmable_speaker_parameters',
     'change_programmable_speaker_circuit_parameters',
-    'drop_item',
     'set_auto_launch_rocket'
 }
 
@@ -85,9 +84,9 @@ Permission_Groups.new_group('Guest')
     'set_infinity_pipe_filter',
     'admin_action', -- trusted
     'change_programmable_speaker_alert_parameters', -- standard
-    'drop_item',
     'set_auto_launch_rocket',
     'change_programmable_speaker_parameters', -- guest
+    'drop_item',
     'change_programmable_speaker_circuit_parameters',
     'change_train_stop_station',
     'deconstruct',
