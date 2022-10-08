@@ -211,7 +211,8 @@ Roles.override_player_roles{
 	['DrSuperGood']={ "Administrator", "Veteran", "Regular" },
 	['Evy_D']={ "Administrator", "Veteran", "Regular" },
 	['MadKatz']={ "Administrator", "Veteran", "Regular" },
-
+	['jrz126']={ "Administrator", "Veteran", "Regular" },
+	
 	['TomKron']={ "Supporter", "Veteran", "Regular" },
 	['cfras5']={ "Supporter", "Veteran", "Regular" },
 	['cydes']={ "Supporter", "Veteran", "Regular" },
