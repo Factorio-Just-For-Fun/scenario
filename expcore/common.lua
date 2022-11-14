@@ -343,7 +343,7 @@ local message = format_chat_colour('Hello, World!', { r=355, g=100, b=100 })
 ]]
 function Common.format_chat_colour(message, color)
     color = color or Colours.white
-    local color_tag = '[color='..math.round(color.r, 3)..', '..math.round(color.g, 3)..', '..math.round(color.b, 3)..']'
+    local color_tag = '[color='..math.round(color.r, 3)..','..math.round(color.g, 3)..','..math.round(color.b, 3)..']'
     return string.format('%s%s[/color]', color_tag, message)
 end
 
@@ -358,7 +358,7 @@ local message = format_chat_colour_localized('Hello, World!', { r=355, g=100, b=
 ]]
 function Common.format_chat_colour_localized(message, color)
     color = color or Colours.white
-    color = math.round(color.r, 3)..', '..math.round(color.g, 3)..', '..math.round(color.b, 3)
+    color = math.round(color.r, 3)..','..math.round(color.g, 3)..','..math.round(color.b, 3)
     return {'color-tag', color, message}
 end
 
