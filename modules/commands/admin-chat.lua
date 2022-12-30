@@ -12,7 +12,6 @@ require 'config.expcore.command_general_parse'
 local Roles = require 'expcore.roles' --- @dep expcore.roles
 
 -- luacheck:ignore 212/tags
-Commands.add_authenticator(function(player, command, tags, reject)
 
 --- Sends a message in chat that only admins can see
 -- @command admin-chat
