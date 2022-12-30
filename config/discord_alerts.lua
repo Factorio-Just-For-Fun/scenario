@@ -9,18 +9,28 @@ return {
     player_bans=true,
     player_mutes=true,
     player_kicks=true,
-    player_promotes=true,
     player_jail=true,
+
+    player_promotes=false, -- This just causes spam
+    
     ['config']=true,
-    ['purge']=true,
-    ['c']=true,
-    ['command']=true,
-    ['silent-command']=true,
-    ['sc']=true,
-    ['measured-command']=true,
-    ['banlist']=true,
     ['permissions']=true,
     ['editor']=true,
+    
+    ['purge']=true,
+    ['banlist']=true,
+
     ['cheat']=true,
-    ['open']=false,
+    ['c']=true,
+    ['command']=true,
+    ['sc']=true,
+    ['silent-command']=true,
+    ['measured-command']=true,
+
+    ['open']=true,
+    ['o']=true,
+    
+    ['repair']=true,
+    ['disable-pollution']=true,
+    ['waterfill']=true,
 }

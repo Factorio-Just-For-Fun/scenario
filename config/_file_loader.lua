@@ -13,7 +13,7 @@ return {
     'modules.commands.kill',
     'modules.commands.admin-chat',
     'modules.commands.admin-markers',
-    'modules.commands.teleport',
+    -- 'modules.commands.teleport',
     -- 'modules.commands.cheat-mode',
     'modules.commands.ratio',
     -- 'modules.commands.interface',
@@ -25,7 +25,7 @@ return {
     'modules.commands.repair',
     'modules.commands.reports',
     -- 'modules.commands.spawn',
-    'modules.commands.warnings',
+    -- 'modules.commands.warnings',
     'modules.commands.find',
     'modules.commands.home',
     -- 'modules.commands.connect',
@@ -33,6 +33,10 @@ return {
     'modules.commands.protection',
     'modules.commands.spectate',
     'modules.commands.search',
+
+    --- FJFF Commands
+    'modules.commands.speed',
+    'modules.commands.disable_pollution',
 
     --- Addons
     'modules.addons.chat-popups',
@@ -59,7 +63,7 @@ return {
     'modules.data.quickbar',
     'modules.data.alt-view',
     'modules.data.tag',
-    'modules.data.bonus',
+    -- 'modules.data.bonus',
 
     --- GUI
     -- 'modules.gui.readme',
@@ -75,8 +79,11 @@ return {
 
     --- FJFF Modules, anything added by FJFF.
     'modules.commands.logi',
+    'modules.commands.speed',
+    'modules.commands.disable_pollution',
+    'modules.commands.waterfill',
 
-		'modules.graftorio.require', -- graftorio
+		-- 'modules.graftorio.require', -- graftorio
 
     --- Config Files
     'config.expcore.command_auth_admin', -- commands tagged with admin_only are blocked for non admins

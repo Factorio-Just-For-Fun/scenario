@@ -17,50 +17,79 @@ Permission_Groups.new_group('Admin')
     'delete_permission_group',
     'edit_permission_group',
     'import_permissions_string',
-    'change_multiplayer_config',
-    -- 'map_editor_action',
-    -- 'toggle_map_editor',
+    
     'set_heat_interface_mode',
     'set_heat_interface_temperature',
     'set_infinity_container_filter_item',
     'set_infinity_container_remove_unfiltered_items',
-    'set_infinity_pipe_filter'
+    'set_infinity_pipe_filter',
 }
 
-Permission_Groups.new_group('Trusted')
+Permission_Groups.new_group('Moderator')
 :allow_all()
 :disallow{
     'add_permission_group', -- admin
     'delete_permission_group',
     'edit_permission_group',
     'import_permissions_string',
-    'map_editor_action',
-    'toggle_map_editor',
-    'change_multiplayer_config',
+
     'set_heat_interface_mode',
     'set_heat_interface_temperature',
     'set_infinity_container_filter_item',
     'set_infinity_container_remove_unfiltered_items',
     'set_infinity_pipe_filter',
-    'admin_action' -- trusted
+
+    'map_editor_action', -- Moderator
+    'toggle_map_editor',
+
+    'change_multiplayer_config',
+
+    'admin_action'
 }
 
-Permission_Groups.new_group('Standard')
+Permission_Groups.new_group('Veteran')
 :allow_all()
 :disallow{
     'add_permission_group', -- admin
     'delete_permission_group',
     'edit_permission_group',
     'import_permissions_string',
-    'map_editor_action',
-    'toggle_map_editor',
-    'change_multiplayer_config',
+
     'set_heat_interface_mode',
     'set_heat_interface_temperature',
     'set_infinity_container_filter_item',
     'set_infinity_container_remove_unfiltered_items',
     'set_infinity_pipe_filter',
-    'admin_action', -- trusted
+
+    'map_editor_action', -- Moderator
+    'toggle_map_editor',
+
+    'change_multiplayer_config',
+
+    'admin_action'
+}
+
+Permission_Groups.new_group('Regular')
+:allow_all()
+:disallow{
+    'add_permission_group', -- admin
+    'delete_permission_group',
+    'edit_permission_group',
+    'import_permissions_string',
+
+    'set_heat_interface_mode',
+    'set_heat_interface_temperature',
+    'set_infinity_container_filter_item',
+    'set_infinity_container_remove_unfiltered_items',
+    'set_infinity_pipe_filter',
+
+    'map_editor_action', -- Moderator
+    'toggle_map_editor',
+
+    'change_multiplayer_config',
+
+    'admin_action',
+
     'change_programmable_speaker_alert_parameters',	-- standard
     'change_programmable_speaker_parameters',
     'change_programmable_speaker_circuit_parameters',
@@ -74,17 +103,25 @@ Permission_Groups.new_group('Guest')
     'delete_permission_group',
     'edit_permission_group',
     'import_permissions_string',
-    'map_editor_action',
-    'toggle_map_editor',
-    'change_multiplayer_config',
+
     'set_heat_interface_mode',
     'set_heat_interface_temperature',
     'set_infinity_container_filter_item',
     'set_infinity_container_remove_unfiltered_items',
     'set_infinity_pipe_filter',
-    'admin_action', -- trusted
-    'change_programmable_speaker_alert_parameters', -- standard
+
+    'map_editor_action', -- Moderator
+    'toggle_map_editor',
+
+    'change_multiplayer_config',
+
+    'admin_action',
+    
+    'change_programmable_speaker_alert_parameters',	-- standard
+    'change_programmable_speaker_parameters',
+    'change_programmable_speaker_circuit_parameters',
     'set_auto_launch_rocket',
+
     'change_programmable_speaker_parameters', -- guest
     'drop_item',
     'change_programmable_speaker_circuit_parameters',
