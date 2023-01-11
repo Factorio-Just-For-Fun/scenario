@@ -14,5 +14,6 @@ Commands.new_command('speed', 'Sets the game speed to the given value')
 :add_param('speed', false, 'number-range', config.min_speed, config.max_speed)
 :register(function(player, speed)
     game.speed = speed
-    return Commands.success{'fjff-speed.result', player.name, speed}
+    game.print{'fjff-speed.result', player.name, speed}
+    return Commands.success()
 end)
