@@ -44,7 +44,7 @@ Permission_Groups.new_group('Moderator')
 
     'change_multiplayer_config',
 
-    'admin_action'
+    --'admin_action'
 }
 
 Permission_Groups.new_group('Veteran')
