@@ -42,9 +42,7 @@ Permission_Groups.new_group('Moderator')
     'map_editor_action', -- Moderator
     'toggle_map_editor',
 
-    'change_multiplayer_config',
-
-    'admin_action'
+    'change_multiplayer_config'
 }
 
 Permission_Groups.new_group('Veteran')
