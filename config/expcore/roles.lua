@@ -94,6 +94,21 @@ Roles.new_role('Supporter','Sup')
     'command/join-message'
 }
 
+local hours64, hours750 = 64*216000, 750*60
+Roles.new_role('VeteranPlus','VetPlus')
+:set_permission_group('Veteran')
+:set_custom_color{r=140,g=120,b=200}
+:set_parent('Veteran')
+:set_auto_assign_condition(function(player)
+    if player.online_time >= hours64 then
+        return true
+    else
+        local stats = Statistics:get(player, {})
+        local playTime, afkTime, mapCount = stats.Playtime or 0, stats.AfkTime or 0, stats.MapsPlayed or 0
+        return playTime - afkTime >= hours750 and mapCount >= 20
+    end
+end)
+
 local hours10, hours15 = 10*216000, 15*60
 Roles.new_role('Veteran','Vet')
 :set_permission_group('Veteran')
@@ -177,6 +192,7 @@ Roles.define_role_order{
     'Administrator',
     'Moderator',
     'Supporter',
+    'VeteranPlus',
     'Veteran',
     'Regular',
     'Jail',
