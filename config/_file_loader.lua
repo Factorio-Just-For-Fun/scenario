@@ -82,6 +82,7 @@ return {
     'modules.commands.speed',
     'modules.commands.disable_pollution',
     'modules.commands.waterfill',
+    'modules.commands.stats',
 
 		-- 'modules.graftorio.require', -- graftorio
 

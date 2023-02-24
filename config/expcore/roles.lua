@@ -73,7 +73,9 @@ Roles.new_role('Moderator','Mod')
 
     'command/follow',
   	'command/spectate',
-    'command/search'
+    'command/search',
+    
+    'command/stats/always'
 }
 
 --- Trusted Roles
@@ -164,11 +166,10 @@ local default = Roles.new_role('Guest','')
     'command/find-on-map',
     'command/report',
     'command/ratio',
-    'command/server-ups',
     'command/save-data',
     'command/preference',
     'command/set-preference',
-    'command/connect',
+    'command/stats',
     'gui/player-list',
     'gui/rocket-info',
     'gui/science-info',
