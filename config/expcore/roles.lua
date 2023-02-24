@@ -74,7 +74,7 @@ Roles.new_role('Moderator','Mod')
     'command/follow',
   	'command/spectate',
     'command/search',
-    
+
     'command/stats/always'
 }
 
@@ -142,7 +142,8 @@ Roles.new_role('Regular','Reg')
     'command/kill',
     'command/rainbow',
     'command/me',
-    'standard-decon'
+    'standard-decon',
+    'bypass-nukeprotect'
 }
 :set_auto_assign_condition(function(player)
     if player.online_time >= hours3 then
