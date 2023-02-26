@@ -204,36 +204,36 @@ Roles.define_role_order{
 }
 
 Roles.override_player_roles{
-    ['joloman2']={ "Administrator", "Supporter", "Veteran", "Regular" },
-	['uno_chaos']={ "Administrator", "Supporter", "Veteran", "Regular" },
+    ['joloman2']={ "Administrator", "Supporter" },
+	['uno_chaos']={ "Administrator", "Supporter" },
 
-	['Ashy314']={ "Administrator", "Veteran", "Regular" },
-	['Nightmare-Squirrel']={ "Administrator", "Veteran", "Regular" },
+	['Ashy314']={ "Administrator" },
+	['Nightmare-Squirrel']={ "Administrator" },
 
-	['elefetor']={ "Moderator", "Veteran", "Regular" },
-	['jrz126']={ "Moderator", "Veteran", "Regular" },
-	['mskitty']={ "Moderator", "Veteran", "Regular" },
-	['Kerza_']={ "Moderator", "Veteran", "Regular" },
+	['elefetor']={ "Moderator" },
+	['jrz126']={ "Moderator" },
+	['mskitty']={ "Moderator" },
+	['Kerza_']={ "Moderator" },
 
     -- Inactive
-	['telexicon']={ "Moderator", "Veteran", "Regular" },
-	['bananna_manuk']={ "Moderator", "Veteran", "Regular" },
-	['Cykloid']={ "Moderator", "Veteran", "Regular" },
-	['DrSuperGood']={ "Moderator", "Veteran", "Regular" },
-	['Evy_D']={ "Moderator", "Veteran", "Regular" },
-	['pilypas']={ "Moderator", "Veteran", "Regular" },
-	['ultrajer']={ "Moderator", "Veteran", "Regular" },
-	['zampaman']={ "Moderator", "Veteran", "Regular" },
+	['telexicon']={ "Moderator" },
+	['bananna_manuk']={ "Moderator" },
+	['Cykloid']={ "Moderator" },
+	['DrSuperGood']={ "Moderator" },
+	['Evy_D']={ "Moderator" },
+	['pilypas']={ "Moderator" },
+	['ultrajer']={ "Moderator" },
+	['zampaman']={ "Moderator" },
 
     -- Disabled
-	-- ['MadKatz']={ "Moderator", "Veteran", "Regular" },
+	-- ['MadKatz']={ "Moderator" },
 
     -- Supporters
-	['BAD4EVR']={ "Supporter", "Veteran", "Regular" },
-	['cfras5']={ "Supporter", "Veteran", "Regular" },
-	['ciderdave']={ "Supporter", "Veteran", "Regular" },
-	['cydes']={ "Supporter", "Veteran", "Regular" },
-	['gigiati']={ "Supporter", "Veteran", "Regular" },
-	['jballou']={ "Supporter", "Veteran", "Regular" },
-	['TomKron']={ "Supporter", "Veteran", "Regular" },
+	['BAD4EVR']={ "Supporter" },
+	['cfras5']={ "Supporter" },
+	['ciderdave']={ "Supporter" },
+	['cydes']={ "Supporter" },
+	['gigiati']={ "Supporter" },
+	['jballou']={ "Supporter" },
+	['TomKron']={ "Supporter" },
 }
