@@ -100,7 +100,7 @@ Roles.new_role('Supporter','Sup')
 local hours64, hours750 = 64*216000, 750*60
 Roles.new_role('VeteranPlus','VetPlus')
 :set_permission_group('Veteran')
-:set_custom_color{r=140,g=120,b=200}
+:set_custom_color{r=255,g=215,b=0}
 :set_parent('Veteran')
 :set_auto_assign_condition(function(player)
     if player.online_time >= hours64 then
