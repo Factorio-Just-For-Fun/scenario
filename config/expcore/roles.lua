@@ -43,7 +43,7 @@ Roles.new_role('Administrator','Admin')
 
 Roles.new_role('Moderator','Mod')
 :set_permission_group('Moderator')
-:set_custom_color{r=233,g=63,b=233}
+:set_custom_color{r=50,g=205,b=50}
 :set_flag('is_admin')
 :set_flag('is_spectator')
 :set_flag('report-immune')
