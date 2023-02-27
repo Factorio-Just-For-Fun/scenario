@@ -219,6 +219,7 @@ Roles.override_player_roles{
 	['telexicon']={ "Moderator" },
 	['bananna_manuk']={ "Moderator" },
 	['Cykloid']={ "Moderator" },
+	['dfarmer']={ "Moderator" },
 	['DrSuperGood']={ "Moderator" },
 	['Evy_D']={ "Moderator" },
 	['pilypas']={ "Moderator" },
