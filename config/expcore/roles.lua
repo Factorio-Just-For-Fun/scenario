@@ -75,6 +75,7 @@ Roles.new_role('Moderator','Mod')
     'command/follow',
   	'command/spectate',
     'command/search',
+    'command/admin-marker',
 
     'command/stats/always'
 }
