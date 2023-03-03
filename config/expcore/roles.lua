@@ -51,7 +51,7 @@ Roles.new_role('Moderator','Mod')
 :set_parent('Veteran')
 :allow{
     'command/assign-role',
-    'command/remove-role',
+    'command/unassign-role',
 
     'command/speed',
     'command/disable-pollution',
