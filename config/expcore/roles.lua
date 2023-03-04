@@ -216,11 +216,13 @@ Roles.override_player_roles{
 	['mskitty']={ "Moderator" },
 	['Kerza_']={ "Moderator" },
 
+	['cfras5']={ "Moderator", "Supporter" },
+	['dfarmer']={ "Moderator" },
+
     -- Inactive
 	['telexicon']={ "Moderator" },
 	['bananna_manuk']={ "Moderator" },
 	['Cykloid']={ "Moderator" },
-	['dfarmer']={ "Moderator" },
 	['DrSuperGood']={ "Moderator" },
 	['Evy_D']={ "Moderator" },
 	['pilypas']={ "Moderator" },
@@ -232,7 +234,6 @@ Roles.override_player_roles{
 
     -- Supporters
 	['BAD4EVR']={ "Supporter" },
-	['cfras5']={ "Supporter" },
 	['ciderdave']={ "Supporter" },
 	['cydes']={ "Supporter" },
 	['gigiati']={ "Supporter" },
