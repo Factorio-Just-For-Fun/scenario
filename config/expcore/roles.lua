@@ -84,7 +84,8 @@ Roles.new_role('Moderator','Mod')
 Roles.new_role('Supporter','Sup')
 :set_permission_group('Veteran')
 :set_custom_color{r=230,g=99,b=34}
-:set_flag('is_spectator')
+:set_flag('report-immune')
+:set_flag("deconlog-bypass")
 :set_parent('Veteran')
 :allow{
     'command/jail',
@@ -95,13 +96,16 @@ Roles.new_role('Supporter','Sup')
     'command/home-get',
     'command/return',
 
-    'command/join-message'
+    'command/join-message',
+    'bypass-entity-protection'
 }
 
 local hours64, hours750 = 64*216000, 750*60
 Roles.new_role('VeteranPlus','VetPlus')
 :set_permission_group('Veteran')
 :set_custom_color{r=255,g=215,b=0}
+:set_flag('report-immune')
+:set_flag("deconlog-bypass")
 :set_parent('Veteran')
 :set_auto_assign_condition(function(player)
     if player.online_time >= hours64 then
@@ -112,6 +116,9 @@ Roles.new_role('VeteranPlus','VetPlus')
         return playTime - afkTime >= hours750 and mapCount >= 20
     end
 end)
+:allow{
+    'bypass-entity-protection'
+}
 
 local hours10, hours15 = 10*216000, 15*60
 Roles.new_role('Veteran','Vet')
