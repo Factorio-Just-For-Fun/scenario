@@ -10,12 +10,14 @@ local config = require 'config.disable_pollution' --- @dep config.disable_pollut
 -- @command disable-pollution
 Commands.new_command('disable-pollution', 'Disables pollution')
 :register(function(player)
-    if config.no_biters and (not not player.surface.find_entities_filtered({force="enemy"})[1]) then
-        return Commands.success{'fjff-disable-pollution.fail'}
+    local enemies = player.surface.find_entities_filtered({force="enemy"})
+
+    if config.no_biters and ( #(player.surface.find_entities_filtered({name="biter-spawner"})) >= 1 or #(enemies) > config.max_enemies ) then
+        return Commands.success{'fjff-disable-pollution.fail', #(enemies), enemies[1].position.x, enemies[1].position.y}
     else
         player.surface.clear_pollution()
         game.map_settings.pollution.enabled = false
-        
+
         return Commands.success{'fjff-disable-pollution.result', player.name}
     end
 end)
