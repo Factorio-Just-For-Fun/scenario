@@ -198,17 +198,10 @@ local function import_from_blueprint(player, bp_entities)
 end
 
 -- The bulk of the command, separated here for pcall.
-local function logi_command_internal(player, targetArg)
+local function logi_command_internal(player)
   local stack = player.cursor_stack
-  local target = player
-  if targetArg then
-    target = game.get_player(targetArg)
-    if not target then
-      error("Player "..targetArg.." doesn't exist.", 0)
-    end
-  end
 
-  if not target.force.character_logistic_requests then
+  if not player.force.character_logistic_requests then
     error("You need logistic robots researched before you can use this.", 0)
   end
   if stack.valid_for_read and not stack.is_blueprint then
@@ -227,23 +220,15 @@ local function logi_command_internal(player, targetArg)
   local bp_entities = player.get_blueprint_entities()
   if bp_entities then
     -- We have entities, so try to import.
-    local import_result = "Imported: "..import_from_blueprint(target, bp_entities)
+    local import_result = "Imported: "..import_from_blueprint(player, bp_entities)
     player.print(import_result)
-    if target.index ~= player.index then
-      target.print(import_result)
-    end
     player.clear_cursor()
   else
     -- A blueprint without entities. We try to export.
     if stack.valid_for_read then
-      local result = export_to_blueprint(target)
+      local result = export_to_blueprint(player)
       stack.set_blueprint_entities(result)
       player.print("Exported.")
-      if target.index ~= player.index then
-        local tname = target.name
-        local ends_s = tname:find("s$")
-        stack.label = tname..(ends_s and "'" or "'s").." logistics"
-      end
     else
       -- The player object says we have a blueprint, but the player's cursor
       -- stack says we have nothing. This means it's using the library.
@@ -275,15 +260,3 @@ Commands.new_command('clogi', 'Copies Player Logistic Requests To Selected Spide
   end
   player.print('Player Logistics Copied to Spidertron')
 end)
-
-Commands.new_command('alogi', 'Converts logistic requests to/from a blueprint.')
-:add_alias('admin-logistic', 'admin-logistics')
-:add_param('target', true)
-:register(function(player, target, raw)
-  local ok, result = pcall(logi_command_internal, player, target)
-  if not ok then
-    game.player.print(result)
-  end
-end)
-
-return M
