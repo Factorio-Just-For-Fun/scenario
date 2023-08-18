@@ -106,7 +106,7 @@ remote.add_interface("freeplay",
   end,
   set_chart_distance = function(value)
     global.chart_distance = tonumber(value)
-  end
+  end,
 
   get_debris_items = function()
     return {}
