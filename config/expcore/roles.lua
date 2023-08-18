@@ -129,7 +129,9 @@ Roles.new_role('Veteran','Vet')
     'command/chat-bot',
     'command/logi',
     'command/clogi',
-    'command/save-quickbar'
+    'command/save-quickbar',
+    
+    'admin-log'
 }
 :set_auto_assign_condition(function(player)
     if player.online_time >= hours10 then

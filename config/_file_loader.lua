@@ -84,6 +84,7 @@ return {
     'modules.commands.disable_pollution',
     'modules.commands.waterfill',
     'modules.commands.stats',
+    'modules.addons.admin-logger',
 
 		-- 'modules.graftorio.require', -- graftorio
 
