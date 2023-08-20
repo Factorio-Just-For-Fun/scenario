@@ -100,7 +100,7 @@ Roles.new_role('Supporter','Sup')
     'bypass-entity-protection'
 }
 
-local hours64, hours750 = 64*216000, 750*60
+local hours32, hours100 = 32*216000, 100*60
 Roles.new_role('VeteranPlus','VetPlus')
 :set_permission_group('Veteran')
 :set_custom_color{r=255,g=215,b=0}
@@ -108,12 +108,12 @@ Roles.new_role('VeteranPlus','VetPlus')
 :set_flag("deconlog-bypass")
 :set_parent('Veteran')
 :set_auto_assign_condition(function(player)
-    if player.online_time >= hours64 then
+    if player.online_time >= hours32 then
         return true
     else
         local stats = Statistics:get(player, {})
         local playTime, afkTime, mapCount = stats.Playtime or 0, stats.AfkTime or 0, stats.MapsPlayed or 0
-        return playTime - afkTime >= hours750 and mapCount >= 20
+        return playTime - afkTime >= hours100 and mapCount >= 5
     end
 end)
 :allow{
