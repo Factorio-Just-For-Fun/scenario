@@ -248,5 +248,6 @@ Roles.override_player_roles{
 	['gigiati']={ "Supporter" },
 	['jballou']={ "Supporter" },
 	['TomKron']={ "Supporter" },
-    ['Delqvs']={ "Supporter" },
+	['Delqvs']={ "Supporter" },
+	['SalatkerneMix']={ "Supporter" },
 }
