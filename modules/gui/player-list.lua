@@ -29,7 +29,8 @@ Gui.element{
     type = 'sprite-button',
     sprite = 'utility/expand_dots_white',
     tooltip = {'player-list.open-action-bar'},
-    style = 'frame_button'
+    style = 'frame_button',
+    name = Gui.unique_static_name
 }
 :style{
     padding = -2,
@@ -75,7 +76,7 @@ Gui.element{
     local reason = element.parent.entry.text
     local action_name = SelectedAction:get(player)
     local reason_callback = config.buttons[action_name].reason_callback
-    if reason == nil or not reason:find("/S") then reason = 'no reason given' end
+    if reason == nil or not reason:find("%S") then reason = 'no reason given' end
     reason_callback(player, reason)
     SelectedPlayer:remove(player)
     SelectedAction:remove(player)
@@ -85,16 +86,15 @@ end)
 --- Set of elements that are used to make up a row of the player table
 -- @element add_player_base
 local add_player_base =
-Gui.element(function(event_trigger, parent, player_data)
+Gui.element(function(_, parent, player_data)
     -- Add the button to open the action bar
     local toggle_action_bar_flow = parent.add{ type = 'flow', name = player_data.name }
     open_action_bar(toggle_action_bar_flow)
 
     -- Add the player name
-    local player_name_flow = parent.add{ type = 'flow', name = 'player-name-'..player_data.index }
-    local player_name = player_name_flow.add{
+    local player_name = parent.add{
         type = 'label',
-        name = event_trigger,
+        name = 'player-name-'..player_data.index,
         caption = player_data.name,
         tooltip = {'player-list.open-map', player_data.name, player_data.tag, player_data.role_name}
     }
@@ -111,7 +111,7 @@ Gui.element(function(event_trigger, parent, player_data)
     }
     time_label.style.padding = 0
 
-    return time_label
+    return player_name
 end)
 :on_click(function(player, element, event)
     local selected_player_name = element.caption
@@ -202,9 +202,9 @@ end
 --- Main player list container for the left flow
 -- @element player_list_container
 local player_list_container =
-Gui.element(function(event_trigger, parent)
+Gui.element(function(definition, parent)
     -- Draw the internal container
-    local container = Gui.container(parent, event_trigger, 200)
+    local container = Gui.container(parent, definition.name, 200)
 
     -- Draw the scroll table for the players
     local scroll_table = Gui.scroll_table(container, 184, 3)
@@ -255,6 +255,7 @@ Gui.element(function(event_trigger, parent)
     -- Return the exteral container
     return container.parent
 end)
+:static_name(Gui.unique_static_name)
 :add_to_left_flow(true)
 
 --- Button on the top flow used to toggle the player list container

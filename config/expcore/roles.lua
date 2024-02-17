@@ -24,21 +24,52 @@ Roles.new_role('System','SYS')
 :set_flag('is_admin')
 :set_flag('is_spectator')
 :set_flag('report-immune')
+<<<<<<< HEAD
 :set_flag("deconlog-bypass")
 :set_allow_all()
 
+=======
+:set_flag('instant-respawn')
+:set_allow_all()
+
+Roles.new_role('Senior Administrator','SAdmin')
+:set_permission_group('Admin')
+:set_custom_color{r=233,g=63,b=233}
+:set_flag('is_admin')
+:set_flag('is_spectator')
+:set_flag('report-immune')
+:set_flag('instant-respawn')
+:set_parent('Administrator')
+:allow{
+    'command/interface',
+    'command/debug',
+    'command/toggle-cheat-mode',
+    'command/research-all'
+}
+
+>>>>>>> upstream/dev
 Roles.new_role('Administrator','Admin')
 :set_permission_group('Admin')
 :set_custom_color{r=233,g=63,b=233}
 :set_flag('is_admin')
 :set_flag('is_spectator')
 :set_flag('report-immune')
+<<<<<<< HEAD
 :set_flag("deconlog-bypass")
 :set_parent('Moderator')
 :allow{
     'command/assign-role',
 
     'command/protect-area'
+=======
+:set_flag('instant-respawn')
+:set_parent('Moderator')
+:allow{
+    'gui/warp-list/bypass-proximity',
+    'gui/warp-list/bypass-cooldown',
+    'command/connect-all',
+	'command/collectdata'
+>>>>>>> upstream/dev
 }
 
 Roles.new_role('Moderator','Mod')
@@ -47,8 +78,13 @@ Roles.new_role('Moderator','Mod')
 :set_flag('is_admin')
 :set_flag('is_spectator')
 :set_flag('report-immune')
+<<<<<<< HEAD
 :set_flag("deconlog-bypass")
 :set_parent('Veteran')
+=======
+:set_flag('instant-respawn')
+:set_parent('Trainee')
+>>>>>>> upstream/dev
 :allow{
     'command/assign-role',
     'command/unassign-role',
@@ -59,9 +95,39 @@ Roles.new_role('Moderator','Mod')
 
     'command/repair',
     'command/kill/always',
+<<<<<<< HEAD
+=======
+    'command/clear-tag/always',
+    'command/go-to-spawn/always',
+    'command/clear-reports',
+    'command/clear-warnings',
+    'command/clear-inventory',
+    'command/bonus',
+    'command/bonus/2',
+    'command/home',
+    'command/home-set',
+    'command/home-get',
+    'command/return',
+    'command/connect-player',
+    'gui/rocket-info/toggle-active',
+    'gui/rocket-info/remote_launch',
+    'command/toggle-friendly-fire',
+    'command/toggle-always-day',
+    'fast-tree-decon'
+}
+>>>>>>> upstream/dev
 
     'command/admin-chat',
+<<<<<<< HEAD
 
+=======
+    'command/admin-marker',
+    'command/goto',
+    'command/teleport',
+    'command/bring',
+    'command/give-warning',
+    'command/get-warnings',
+>>>>>>> upstream/dev
     'command/get-reports',
     'command/clear-reports',
 
@@ -75,9 +141,24 @@ Roles.new_role('Moderator','Mod')
     'command/follow',
   	'command/spectate',
     'command/search',
+<<<<<<< HEAD
     'command/admin-marker',
 
     'command/stats/always'
+=======
+    'command/search-amount',
+    'command/search-recent',
+    'command/search-online',
+    'command/personal-battery-recharge',
+    'command/pollution-off',
+    'command/pollution-clear',
+    'command/bot-queue-get',
+    'command/bot-queue-set',
+    'command/game-speed',
+    'command/kill-biters',
+    'command/remove-biters',
+    'gui/playerdata'
+>>>>>>> upstream/dev
 }
 
 --- Trusted Roles
@@ -144,7 +225,35 @@ Roles.new_role('Veteran','Vet')
 end)
 
 --- Standard User Roles
+<<<<<<< HEAD
 local hours3, hours8 = 3*216000, 8*60
+=======
+Roles.new_role('Member','Mem')
+:set_permission_group('Standard')
+:set_custom_color{r=24,g=172,b=188}
+:set_flag('deconlog-bypass')
+:set_parent('Regular')
+:allow{
+    'gui/task-list/add',
+    'gui/task-list/edit',
+    'gui/warp-list/add',
+    'gui/warp-list/edit',
+    'command/save-quickbar',
+    'gui/vlayer-edit',
+    'command/vlayer-info',
+    'command/personal-logistic',
+    'command/auto-research',
+    'command/set-trains-to-automatic',
+    'command/lawnmower',
+    'command/waterfill',
+    'command/artillery-target-remote',
+    'command/clear-item-on-ground',
+    'command/clear-blueprint',
+    'gui/surveillance'
+}
+
+local hours3, hours15 = 3*216000, 15*60
+>>>>>>> upstream/dev
 Roles.new_role('Regular','Reg')
 :set_permission_group('Regular')
 :set_custom_color{r=79,g=155,b=163}
@@ -154,7 +263,12 @@ Roles.new_role('Regular','Reg')
     'command/rainbow',
     'command/me',
     'standard-decon',
+<<<<<<< HEAD
     'bypass-nukeprotect'
+=======
+    'bypass-entity-protection',
+	'bypass-nukeprotect'
+>>>>>>> upstream/dev
 }
 :set_auto_assign_condition(function(player)
     if player.online_time >= hours3 then
@@ -186,7 +300,16 @@ local default = Roles.new_role('Guest','')
     'gui/rocket-info',
     'gui/science-info',
     'gui/task-list',
+<<<<<<< HEAD
     'gui/readme'
+=======
+    'gui/warp-list',
+    'gui/readme',
+    'gui/vlayer',
+    'gui/research',
+    'gui/autofill',
+    'gui/module'
+>>>>>>> upstream/dev
 }
 
 --- Jail role
@@ -194,7 +317,7 @@ Roles.new_role('Jail')
 :set_permission_group('Restricted')
 :set_custom_color{r=50,g=50,b=50}
 :set_block_auto_assign(true)
-:set_flag("defer_role_changes")
+:set_flag('defer_role_changes')
 :disallow(default.allowed)
 
 --- System defaults which are required to be set

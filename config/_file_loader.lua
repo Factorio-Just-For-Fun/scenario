@@ -6,9 +6,10 @@
 return {
     --'example.file_not_loaded',
     'modules.factorio-control', -- base factorio free play scenario
-    'expcore.player_data',
+    'expcore.player_data', -- must be loaded first to register event handlers
 
     --- Game Commands
+    'modules.commands.debug',
     'modules.commands.me',
     'modules.commands.kill',
     'modules.commands.admin-chat',
@@ -33,10 +34,18 @@ return {
     'modules.commands.protection',
     'modules.commands.spectate',
     'modules.commands.search',
-
-    --- FJFF Commands
+    'modules.commands.bot-queue',
     'modules.commands.speed',
-    'modules.commands.disable_pollution',
+    'modules.commands.pollution',
+    'modules.commands.train',
+    'modules.commands.friendly-fire',
+    'modules.commands.lawnmower',
+    'modules.commands.research',
+    'modules.commands.vlayer',
+    'modules.commands.enemy',
+    'modules.commands.waterfill',
+    'modules.commands.artillery',
+    'modules.commands.surface-clearing',
 
     --- Addons
     'modules.addons.chat-popups',
@@ -56,6 +65,11 @@ return {
     'modules.addons.protection-jail',
 		'modules.addons.deconlog',
 		'modules.addons.nukeprotect',
+		'modules.addons.inserter',
+    'modules.addons.miner',
+
+    -- Control
+    'modules.control.vlayer',
 
     --- Data
     'modules.data.statistics',
@@ -65,6 +79,8 @@ return {
     'modules.data.alt-view',
     'modules.data.tag',
     -- 'modules.data.bonus',
+    'modules.data.personal-logistic',
+    'modules.data.language',
 
     --- GUI
     -- 'modules.gui.readme',
@@ -74,9 +90,23 @@ return {
     -- 'modules.gui.warp-list',
     'modules.gui.task-list',
     'modules.gui.player-list',
-    -- 'modules.gui.server-ups',
-    -- 'modules.commands.debug',
-    -- 'modules.gui.autofill',
+    'modules.gui.server-ups',
+    'modules.gui.vlayer',
+    'modules.gui.research',
+    'modules.gui.module',
+    'modules.gui.playerdata',
+    'modules.gui.surveillance',
+	--	'modules.graftorio.require', -- graftorio
+    'modules.gui.toolbar', -- must be loaded last to register toolbar handlers
+
+    --- Config Files
+    'config.expcore.command_auth_admin', -- commands tagged with admin_only are blocked for non admins
+    'config.expcore.command_auth_roles', -- commands must be allowed via the role config
+    'config.expcore.command_runtime_disable', -- allows commands to be enabled and disabled during runtime
+    'config.expcore.permission_groups', -- loads some predefined permission groups
+    'config.expcore.roles', -- loads some predefined roles
+
+    
 
     --- FJFF Modules, anything added by FJFF.
     'modules.commands.logi',
@@ -85,13 +115,4 @@ return {
     'modules.commands.waterfill',
     'modules.commands.stats',
     'modules.addons.admin-logger',
-
-		-- 'modules.graftorio.require', -- graftorio
-
-    --- Config Files
-    'config.expcore.command_auth_admin', -- commands tagged with admin_only are blocked for non admins
-    'config.expcore.command_auth_roles', -- commands must be allowed via the role config
-    'config.expcore.command_runtime_disable', -- allows commands to be enabled and disabled during runtime
-    'config.expcore.permission_groups', -- loads some predefined permission groups
-    'config.expcore.roles', -- loads some predefined roles
 }

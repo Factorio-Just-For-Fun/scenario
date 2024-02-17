@@ -6,6 +6,7 @@
 
 local Game = require 'utils.game' -- @dep utils.game
 local Gui = require 'expcore.gui' -- @dep expcore.gui
+local Roles = require 'expcore.roles' -- @dep expcore.gui
 local Global = require 'utils.global' -- @dep utils.global
 local config = require 'config.gui.autofill' -- @dep config.gui.autofill
 local Event = require 'utils.event' -- @dep utils.event
@@ -32,7 +33,8 @@ Gui.element{
 	type = 'sprite-button',
 	sprite = 'utility/expand_dark',
 	hovered_sprite = 'utility/expand',
-	tooltip = {'autofill.toggle-section-tooltip'}
+	tooltip = {'autofill.toggle-section-tooltip'},
+    name = Gui.unique_static_name
 }
 :style(Gui.sprite_style(20))
 :on_click(function(_, element, _)
@@ -50,20 +52,12 @@ Gui.element{
     end
 end)
 
---- Used to assign an event to the header label to trigger a toggle
--- @element header_toggle
-local header_toggle = Gui.element()
-:on_click(function(_, element, event)
-    event.element = element.parent.alignment[toggle_section.name]
-    toggle_section:raise_custom_event(event)
-end)
-
 --- Toggle enitity button, used for toggling autofill for the specific entity
 -- All entity autofill settings will be ignored if its disabled
 -- @element entity_toggle
-local entity_toggle = Gui.element(function(event_trigger, parent, entity_name)
+local entity_toggle =
+Gui.element(function(_, parent, entity_name)
     return parent.add{
-        name = event_trigger,
         type = 'sprite-button',
         sprite = 'utility/confirm_slot',
         tooltip = {'autofill.toggle-entity-tooltip', rich_img('item', entity_name)},
@@ -95,16 +89,18 @@ end)
 --- Draw a section header and main scroll
 -- @element autofill_section_container
 local section =
-Gui.element(function(_, parent, section_name, table_size)
+Gui.element(function(definition, parent, section_name, table_size)
     -- Draw the header for the section
     local header = Gui.header(
         parent,
         {'autofill.toggle-section-caption', rich_img('item', section_name), {'entity-name.'..section_name}},
         {'autofill.toggle-section-tooltip'},
 		true,
-		section_name..'-header',
-		header_toggle.name
+		section_name..'-header'
     )
+
+    definition:triggers_events(header.parent.header_label)
+
 	-- Right aligned button to toggle the section
     header.caption = section_name
     entity_toggle(header, section_name)
@@ -118,15 +114,18 @@ Gui.element(function(_, parent, section_name, table_size)
 
     section_table.visible = false
 
-    return section_table
+    return definition:no_events(section_table)
+end)
+:on_click(function(_, element, event)
+    event.element = element.parent.alignment[toggle_section.name]
+    toggle_section:raise_event(event)
 end)
 
 --- Toggle item button, used for toggling autofill for the specific item
 -- @element toggle_item_button
 local toggle_item_button =
-Gui.element(function(event_trigger, parent, item)
+Gui.element(function(_, parent, item)
     return parent.add{
-        name = event_trigger,
         type = 'sprite-button',
         sprite = 'item/'..item.name,
         tooltip = {'autofill.toggle-tooltip', rich_img('item', item.name), item.category},
@@ -161,9 +160,8 @@ end)
 --- Amount text field for a autofill item
 -- @element amount_textfield
 local amount_textfield =
-Gui.element(function(event_trigger, parent, item)
+Gui.element(function(_, parent, item)
     return parent.add{
-        name = event_trigger,
         type = 'textfield',
         text = item.amount,
         tooltip = {'autofill.amount-tooltip', item.category },
@@ -233,9 +231,9 @@ end)
 --- Main gui container for the left flow
 -- @element autofill_container
 autofill_container =
-Gui.element(function(event_trigger, parent)
+Gui.element(function(definition, parent)
     -- Draw the internal container
-    local container = Gui.container(parent, event_trigger)
+    local container = Gui.container(parent, definition.name)
     -- Draw the scroll container
     local scroll_table = Gui.scroll_table(container, 400, 1, 'autofill-scroll-table')
     -- Set the scroll panel to always show the scrollbar (not doing this will result in a changing gui size)
@@ -293,11 +291,14 @@ Gui.element(function(event_trigger, parent)
     -- Return the external container
     return container.parent
 end)
+:static_name(Gui.unique_static_name)
 :add_to_left_flow()
 
 --- Button on the top flow used to toggle autofill container
 -- @element autofill_toggle
-Gui.left_toolbar_button(config.icon, {'autofill.main-tooltip'}, autofill_container)
+Gui.left_toolbar_button(config.icon, {'autofill.main-tooltip'}, autofill_container, function(player)
+	return Roles.player_allowed(player, 'gui/autofill')
+end)
 
 --- When a player is created make sure they have the default autofill settings
 Event.add(defines.events.on_player_created, function(event)

@@ -16,7 +16,8 @@ Gui.element{
     type = 'sprite-button',
     sprite = 'utility/preset',
     style = 'tool_button',
-    tooltip = {'gui_util.button_tooltip'}
+    tooltip = {'gui_util.button_tooltip'},
+    name = Gui.unique_static_name
 }
 :style{
     padding = -2,
@@ -24,7 +25,7 @@ Gui.element{
     height = 36
 }
 :on_click(function(player, _,_)
-    Gui.toggle_top_flow(player)
+    Gui.toggle_top_flow(player, false)
 end)
 Gui.core_defines.hide_top_flow = hide_top_flow
 
@@ -35,7 +36,8 @@ Gui.element{
     type = 'sprite-button',
     sprite = 'utility/preset',
     style = 'tool_button',
-    tooltip = {'gui_util.button_tooltip'}
+    tooltip = {'gui_util.button_tooltip'},
+    name = Gui.unique_static_name
 }
 :style{
     padding = -2,
@@ -43,7 +45,7 @@ Gui.element{
     height = 20
 }
 :on_click(function(player, _,_)
-    Gui.toggle_top_flow(player)
+    Gui.toggle_top_flow(player, true)
 end)
 Gui.core_defines.show_top_flow = show_top_flow
 
@@ -54,7 +56,8 @@ Gui.element{
     type = 'sprite-button',
     sprite = 'utility/close_black',
     style = 'tool_button',
-    tooltip = {'expcore-gui.left-button-tooltip'}
+    tooltip = {'expcore-gui.left-button-tooltip'},
+    name = Gui.unique_static_name
 }
 :style{
     padding = -3,
@@ -83,5 +86,4 @@ Event.add(defines.events.on_player_created, function(event)
     show_top.visible = false
     hide_left.visible = false
     Gui.draw_left_flow(player)
-
 end)

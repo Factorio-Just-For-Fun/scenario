@@ -7,27 +7,35 @@ local Roles = require 'expcore.roles' --- @dep expcore.roles
 local Gui = require 'expcore.gui' --- @dep expcore.gui
 local PlayerData = require 'expcore.player_data' --- @dep expcore.player_data
 
--- Global queue used to store trees that need to be removed, also chache for player roles
-local chache = {}
+-- Global queue used to store trees that need to be removed, also cache for player roles
+local cache = {}
 local tree_queue = { _head=0 }
-Global.register({ tree_queue, chache }, function(tbl)
+Global.register({tree_queue, cache}, function(tbl)
     tree_queue = tbl[1]
-    chache = tbl[2]
+    cache = tbl[2]
 end)
 
+local function get_permission(player_index)
+    if cache[player_index] == nil then
+        local player = game.players[player_index]
+        if Roles.player_allowed(player, 'fast-tree-decon') then cache[player_index] = 'fast'
+        elseif Roles.player_allowed(player, 'standard-decon') then cache[player_index] = 'standard'
+        else cache[player_index] = player.force end
+    end
+
+    return cache[player_index]
+end
 
 -- Left menu button to toggle between fast decon and normal decon marking
 local HasEnabledDecon = PlayerData.Settings:combine('HasEnabledDecon')
 HasEnabledDecon:set_default(false)
 
-Gui.toolbar_button("entity/tree-01", {'tree-decon.main-tooltip'}, function (player)
+Gui.toolbar_toggle_button("entity/tree-01", {'tree-decon.main-tooltip'}, function (player)
 	return Roles.player_allowed(player, "fast-tree-decon")
 end)
-:on_click(function(player, element)
-	local status = HasEnabledDecon:get(player)
-	HasEnabledDecon:set(player, not status)
-	Gui.toolbar_button_style(element, not status)
-	player.print(status and {'tree-decon.toggle-msg', {'tree-decon.disabled'}} or {'tree-decon.toggle-msg', {'tree-decon.enabled'}})
+:on_event(Gui.events.on_toolbar_button_toggled, function(player, _, event)
+	HasEnabledDecon:set(player, event.state)
+	player.print{'tree-decon.toggle-msg', event.state and {'tree-decon.enabled'} or {'tree-decon.disabled'}}
 end)
 
 
@@ -36,20 +44,14 @@ Event.add(defines.events.on_marked_for_deconstruction, function(event)
     -- Check which type of decon a player is allowed
     local index = event.player_index
     if not index then return end
-    if chache[index] == nil then
-        local player = game.players[index]
-        if Roles.player_allowed(player, 'fast-tree-decon') then chache[index] = 'fast'
-        elseif Roles.player_allowed(player, 'standard-decon') then chache[index] = 'standard'
-        else chache[index] = player.force end
-    end
 
     -- Check what should happen to this entity
     local entity = event.entity
-    local allow = chache[index]
     if not entity or not entity.valid then return end
 
     -- Not allowed to decon this entity
     local last_user = entity.last_user
+    local allow = get_permission(index)
     if last_user and allow ~= 'standard' and allow ~= 'fast' then
         entity.cancel_deconstruction(allow)
         return
@@ -57,7 +59,6 @@ Event.add(defines.events.on_marked_for_deconstruction, function(event)
 
     -- Allowed to decon this entity, but not fast
     if allow ~= 'fast' then return end
-
 
     local player = game.get_player(index)
     if not HasEnabledDecon:get(player) then return end
@@ -91,9 +92,34 @@ Event.add(defines.events.on_tick, function()
     tree_queue._head = head
 end)
 
--- Clear the chache
+-- Clear the cache
 Event.on_nth_tick(300, function()
-    for key, _ in pairs(chache) do
-        chache[key] = nil
+    for key, _ in pairs(cache) do
+        cache[key] = nil
+    end
+end)
+
+-- Clear trees when hit with a car
+Event.add(defines.events.on_entity_damaged, function(event)
+	if not (event.damage_type.name == 'impact' and event.force) then
+		return
+	end
+
+	if not (event.entity.type == 'tree' or event.entity.type == 'simple-entity') then
+		return
+	end
+
+	if (not event.cause) or (event.cause.type ~= 'car')then
+		return
+	end
+
+    local driver = event.cause.get_driver()
+    if not driver then return end
+
+    local allow = get_permission(driver.player.index)
+    if allow == "fast" and HasEnabledDecon:get(driver.player) then
+	    event.entity.destroy()
+    else
+        event.entity.order_deconstruction(event.force, driver.player)
     end
 end)

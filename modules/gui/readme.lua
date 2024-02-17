@@ -25,13 +25,11 @@ local scroll_height = 275 -- controls the height of the scrolls
 --- Sub content area used within the content areas
 -- @element sub_content
 local sub_content =
-Gui.element(function(_, parent)
-    return parent.add{
-        type = 'frame',
-        direction = 'vertical',
-        style = 'inside_deep_frame'
-    }
-end)
+Gui.element{
+    type = 'frame',
+    direction = 'vertical',
+    style = 'inside_deep_frame'
+}
 :style{
     horizontally_stretchable = true,
     horizontal_align = 'center',
@@ -77,12 +75,11 @@ Gui.element{
 --- Used to connect to servers in server list
 -- @element join_server
 local join_server =
-Gui.element(function(event_trigger, parent, server_id, wrong_version)
+Gui.element(function(_, parent, server_id, wrong_version)
     local status = External.get_server_status(server_id) or 'Offline'
     if wrong_version then status = 'Version' end
     local flow = parent.add{ name = server_id, type = 'flow' }
     local button = flow.add{
-        name = event_trigger,
         type = 'sprite-button',
         sprite = 'utility/circuit_network_panel_white', --- network panel white, warning white, download white
         hovered_sprite = 'utility/circuit_network_panel_black', --- network panel black, warning black, download black
@@ -404,9 +401,9 @@ end))
 -- @element readme
 local readme_toggle
 local readme =
-Gui.element(function(event_trigger, parent)
+Gui.element(function(definition, parent)
     local container = parent.add{
-        name = event_trigger,
+        name = definition.name,
         type = 'frame',
         style = 'invisible_frame'
     }
@@ -439,13 +436,12 @@ Gui.element(function(event_trigger, parent)
 
     return container
 end)
+:static_name(Gui.unique_static_name)
 :on_open(function(player)
-    local toggle_button = Gui.get_top_element(player, readme_toggle)
-    Gui.toolbar_button_style(toggle_button, true)
+    Gui.toggle_toolbar_button(player, readme_toggle, true)
 end)
 :on_close(function(player, element)
-    local toggle_button = Gui.get_top_element(player, readme_toggle)
-    Gui.toolbar_button_style(toggle_button, false)
+    Gui.toggle_toolbar_button(player, readme_toggle, false)
     Gui.destroy_if_valid(element)
 end)
 
