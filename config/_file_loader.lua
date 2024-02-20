@@ -9,7 +9,7 @@ return {
     'expcore.player_data', -- must be loaded first to register event handlers
 
     --- Game Commands
-    'modules.commands.debug',
+    -- 'modules.commands.debug',
     'modules.commands.me',
     'modules.commands.kill',
     'modules.commands.admin-chat',
@@ -21,7 +21,7 @@ return {
     -- 'modules.commands.help',
     'modules.commands.roles',
     'modules.commands.rainbow',
-    -- 'modules.commands.clear-inventory',
+    'modules.commands.clear-inventory',
     'modules.commands.jail',
     'modules.commands.repair',
     'modules.commands.reports',
@@ -30,7 +30,7 @@ return {
     'modules.commands.find',
     'modules.commands.home',
     -- 'modules.commands.connect',
-    -- 'modules.commands.last-location',
+    'modules.commands.last-location',
     'modules.commands.protection',
     'modules.commands.spectate',
     'modules.commands.search',
@@ -38,7 +38,7 @@ return {
     'modules.commands.speed',
     'modules.commands.pollution',
     'modules.commands.train',
-    'modules.commands.friendly-fire',
+    -- 'modules.commands.friendly-fire',
     'modules.commands.lawnmower',
     'modules.commands.research',
     'modules.commands.vlayer',
@@ -69,7 +69,7 @@ return {
     'modules.addons.miner',
 
     -- Control
-    'modules.control.vlayer',
+    --'modules.control.vlayer',
 
     --- Data
     'modules.data.statistics',
@@ -91,7 +91,7 @@ return {
     'modules.gui.task-list',
     'modules.gui.player-list',
     'modules.gui.server-ups',
-    'modules.gui.vlayer',
+    -- 'modules.gui.vlayer',
     'modules.gui.research',
     'modules.gui.module',
     'modules.gui.playerdata',
@@ -110,9 +110,5 @@ return {
 
     --- FJFF Modules, anything added by FJFF.
     'modules.commands.logi',
-    'modules.commands.speed',
-    'modules.commands.disable_pollution',
-    'modules.commands.waterfill',
-    'modules.commands.stats',
     'modules.addons.admin-logger',
 }

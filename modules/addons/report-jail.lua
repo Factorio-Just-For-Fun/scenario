@@ -18,19 +18,11 @@ end
 Event.add(Reports.events.on_player_reported, function(event)
     local player = game.get_player(event.player_index)
     local total_playtime = Reports.count_reports(player, reporter_playtime)
-<<<<<<< HEAD
-    if total_playtime < player.online_time*1.5 then return end
-    -- Combined playtime is greater than 150% of the reported's playtime
-    local player_name_color = format_chat_player_name(player)
-    Jail.jail_player(player, '<reports>', 'Reported by too many players, please wait for a moderator.')
-    game.print{'expcom-jail.give', player_name_color, '<reports>', 'Reported by too many players, please wait for a moderator'}
-=======
 
     -- player less than 30 min
-    if (Reports.count_reports(player) > 1) and (total_playtime > math.max(player.online_time * 2, 108000)) then
+    if total_playtime > math.max(player.online_time * 2, 108000) then
         local player_name_color = format_chat_player_name(player)
         Jail.jail_player(player, '<reports>', 'Reported by too many players, please wait for a moderator.')
         game.print{'report-jail.jail', player_name_color}
     end
->>>>>>> upstream/dev
 end)
