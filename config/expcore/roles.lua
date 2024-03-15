@@ -24,6 +24,7 @@ Roles.new_role('System','SYS')
 :set_flag('is_admin')
 :set_flag('is_spectator')
 :set_flag('report-immune')
+:set_flag('deconlog-bypass')
 :set_flag('instant-respawn')
 :set_allow_all()
 
@@ -33,6 +34,7 @@ Roles.new_role('Administrator','Admin')
 :set_flag('is_admin')
 :set_flag('is_spectator')
 :set_flag('report-immune')
+:set_flag('deconlog-bypass')
 :set_parent('Moderator')
 :allow{
     -- 'gui/warp-list/bypass-proximity',
@@ -47,6 +49,7 @@ Roles.new_role('Moderator','Mod')
 :set_flag('is_admin')
 :set_flag('is_spectator')
 :set_flag('report-immune')
+:set_flag('deconlog-bypass')
 :set_flag('instant-respawn')
 :set_parent('Veteran')
 :allow{
@@ -109,7 +112,7 @@ Roles.new_role('Supporter','Sup')
 :set_permission_group('Veteran')
 :set_custom_color{r=230,g=99,b=34}
 :set_flag('report-immune')
-:set_flag("deconlog-bypass")
+:set_flag('deconlog-bypass')
 :set_parent('Veteran')
 :allow{
     'command/jail',
@@ -128,6 +131,8 @@ local hours10, hours15 = 10*216000, 15*60
 Roles.new_role('Veteran','Vet')
 :set_permission_group('Veteran')
 :set_custom_color{r=140,g=120,b=200}
+:set_flag('report-immune')
+:set_flag('deconlog-bypass')
 :set_parent('Regular')
 :allow{
     -- 'command/chat-bot',
@@ -246,7 +251,7 @@ Roles.override_player_roles{
     ['joloman2']={ "Administrator", "Supporter" },
 	['uno_chaos']={ "Administrator", "Supporter" },
 
-	['Ashy314']={ "Veteran" },
+	['Ashy314']={ "Administrator" },
 	['Nightmare-Squirrel']={ "Administrator" },
 
 	['elefetor']={ "Moderator" },
