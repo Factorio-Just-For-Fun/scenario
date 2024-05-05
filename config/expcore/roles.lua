@@ -285,4 +285,5 @@ Roles.override_player_roles{
 	['TomKron']={ "Supporter" },
 	['Delqvs']={ "Supporter" },
 	['SalatkerneMix']={ "Supporter" },
+	['afarabaugh']={ "Supporter" },
 }
