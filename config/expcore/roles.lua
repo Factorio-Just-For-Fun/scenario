@@ -262,6 +262,8 @@ Roles.override_player_roles{
 	['cfras5']={ "Moderator", "Supporter" },
 	['dfarmer']={ "Moderator" },
 	['Foxologe']={ "Moderator" },
+	['mnboiler']={ "Moderator" },
+	['SilentLog']={ "Moderator" },
 
     -- Inactive
 	['telexicon']={ "Moderator" },
