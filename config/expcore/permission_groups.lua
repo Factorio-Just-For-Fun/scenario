@@ -90,7 +90,18 @@ Permission_Groups.new_group('Guest')
     'rotate_entity',
     'cancel_research',
     'flush_opened_entity_fluid',
-    'flush_opened_entity_specific_fluid'
+    'flush_opened_entity_specific_fluid',
+    'delete_custom_tag',
+    'edit_custom_tag',
+    'delete_space_platform',
+    'rename_space_platform',
+    'rename_interrupt',
+    'activate_interrupt',
+    'add_train_interrupt',
+    'drag_train_schedule_interrupt',
+    'edit_interrupt',
+    'remove_train_interrupt',
+    
 }
 
 Permission_Groups.new_group('Restricted')
