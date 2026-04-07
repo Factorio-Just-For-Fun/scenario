@@ -335,4 +335,5 @@ Roles.override_player_roles{
     ['cydes']={ "Supporter" },
     ['gigiati']={ "Supporter" },
     ['jballou']={ "Supporter" },
+    ['RockinMozart']={ "Supporter" },
 }
