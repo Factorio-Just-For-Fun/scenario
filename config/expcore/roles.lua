@@ -303,16 +303,11 @@ Roles.override_player_roles{
     ['uno_chaos']={ "Administrator", "Supporter" },
 
     -- Moderators
-    ['Cykloid']={ "Moderator" },
-    ['Delqvs']={ "Moderator", "Supporter" },
     ['DrSuperGood']={ "Moderator" },
-    ['Dregore']={ "Moderator" },
-    ['Evy_D']={ "Moderator" },
     ['Foxologe']={ "Moderator" },
     ['Kerza_']={ "Moderator" },
     ['RootWyrm']={ "Moderator" },
     ['SilentLog']={ "Moderator" },
-    ['Weyoune']={ "Moderator" },
     ['bananna_manuk']={ "Moderator" },
     ['cfras5']={ "Moderator", "Supporter" },
     ['dfarmer']={ "Moderator" },
@@ -320,11 +315,8 @@ Roles.override_player_roles{
     ['jrz126']={ "Moderator" },
     ['mnboiler']={ "Moderator" },
     ['mskitty']={ "Moderator" },
-    ['pilypas']={ "Moderator" },
     ['ratmonkies']={ "Moderator" },
     ['telexicon']={ "Moderator" },
-    ['ultrajer']={ "Moderator" },
-    ['zampaman']={ "Moderator" },
 
     -- Supporters
     ['BAD4EVR']={ "Supporter" },
